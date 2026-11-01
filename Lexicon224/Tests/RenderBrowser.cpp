@@ -64,6 +64,7 @@ int main(int argc, char **argv) {
     return 3;
   // Simulate attaching the editor to a host: the organizer must auto-open.
   browser.addToDesktop(juce::ComponentPeer::windowIsTemporary);
+  browser.setVisible(true);
   browser.visibilityChanged();
   PresetWindow *floating = nullptr;
   for (int i = 0; i < juce::Desktop::getInstance().getNumComponents(); ++i)
