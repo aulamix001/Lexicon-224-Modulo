@@ -131,10 +131,17 @@ int main() {
       PresetLibrary library(storage);
       check(library.entries().size() == 55,
             "Named screenshot catalog count incorrect");
-      check(library.filter("", "Bright", false).size() == 26,
-            "Bright filter incorrect");
-      check(library.filter("", "Medium", false).size() == 19,
-            "Medium filter incorrect");
+      const struct {
+        const char *tag;
+        int count;
+      } referenceTags[] = {{"Bright", 26}, {"Short", 20},     {"Plate", 20},
+                           {"Medium", 20}, {"Dark", 16},      {"Hall", 15},
+                           {"Drums", 15},  {"Long", 14},      {"Best off", 13},
+                           {"Room", 11},   {"modulacao", 11}, {"Vocal", 9}};
+      for (const auto &reference : referenceTags)
+        check(library.filter("", reference.tag, false).size() ==
+                  reference.count,
+              "Reference tag filter count incorrect");
       check(library.filter("brooklyn", "", false).size() == 1, "Search failed");
       int vocal = library.filter("Ballad Vocals", "", false)[0];
       auto id = library.entries()[size_t(vocal)].id;
