@@ -1,11 +1,11 @@
-# Lexicon224 v0.2.4 — Windows x64 VST3
+# Lexicon224 v0.2.5 — Windows x64 VST3
 
-Extract the ZIP and replace the complete Lexicon224.vst3 folder in C:\Program Files\Common Files\VST3. Restart/rescan your DAW. OPEN opens the independent floating tag/preset organizer beside the plugin.
+Extract the ZIP and replace the entire Lexicon224.vst3 folder in C:\Program Files\Common Files\VST3. Restart/rescan your DAW.
 
-All 55 existing complete preset states and their 12 reference categories are preserved. The mapping completion pass creates name-based estimates only when a state is absent/incomplete and retains existing values. This bank needed zero replacements: all 55 already load. The ZIP includes preset-readiness-audit.json and preset-mapping-completion.json.
+The plugin now has its own clearly labeled PRESETS / TAGS toolbar button and current preset name. The floating tag organizer opens automatically when the editor is first shown. It opens beside the plugin, remains closed after an intentional close, follows host program selection, and hides with the editor. OPEN also toggles it. The DAW's native program dropdown remains a separate host control; it cannot render the plugin's custom tag interface.
 
-The floating organizer uses the reference palette, type, structure and category order with frontal skeuomorphic 2.5D relief: shallow linear gradients, soft outer/contact shadows, inset edges and 1 px highlights. The panel retains beveled keys/faders, metal rails and red acrylic display glass. All drawing is 2D; no perspective transforms are used.
+All 55 complete estimated states and all 12 reference tag memberships are preserved. Search, favourites and user save/rename/delete remain available. The ZIP includes the complete mapping audit and the completion report. No named preset is missing a state.
 
-Search, tag filtering, favourites, and user save/rename/delete remain available. The Windows workflow runs the DSP, all-55-preset/state/tag tests and panel/native-floating-window checks before publication.
+Frontal skeuomorphic 2.5D drawing retains the reference colors, fonts, shallow gradients, inset/contact shadows and 1 px highlights. The hardware panel geometry is retained below the new toolbar.
 
-**Accuracy:** values inferred from photos and any future name-derived designs are estimates, not recovered original presets. Exact visual, preset and hardware sound equivalence is unverified. SYS NOISE audio is not modeled; rear buses are configured through the host. The artwork is a procedural approximation of the supplied references.
+Windows tests verify automatic native-window opening, both manual access controls, host program/title synchronization and hiding with the editor, plus DSP and all 55 preset/state/tag checks. These checks establish implemented behavior; original visual and sonic equality and every DAW's compatibility are unverified. The parameter states are estimates, not recovered originals.

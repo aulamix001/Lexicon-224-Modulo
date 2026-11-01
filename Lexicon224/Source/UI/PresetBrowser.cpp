@@ -179,8 +179,20 @@ PresetBrowser::PresetBrowser(Lexicon224Processor &p) : processor(p) {
   feedback.setText("55 presets - reconstrucoes visuais estimadas",
                    juce::dontSendNotification);
   refresh();
+  lastRevision = processor.presetRevision.load();
+  startTimerHz(10);
 }
-PresetBrowser::~PresetBrowser() { setLookAndFeel(nullptr); }
+PresetBrowser::~PresetBrowser() {
+  stopTimer();
+  setLookAndFeel(nullptr);
+}
+void PresetBrowser::timerCallback() {
+  auto revision = processor.presetRevision.load();
+  if (revision != lastRevision) {
+    lastRevision = revision;
+    refresh();
+  }
+}
 int PresetBrowser::current() const {
   int row = list.getSelectedRow();
   return juce::isPositiveAndBelow(row, visible.size()) ? visible[row] : -1;
@@ -193,6 +205,14 @@ void PresetBrowser::refresh() {
       juce::isPositiveAndBelow(selected, int(library.entries().size()))
           ? library.entries()[size_t(selected)].id
           : juce::String{};
+  auto activeId =
+      processor.state.state.getProperty("factoryPresetId").toString();
+  if (activeId.isNotEmpty()) {
+    id = activeId;
+    for (const auto &entry : library.entries())
+      if (entry.id == activeId)
+        title.setText(entry.name, juce::dontSendNotification);
+  }
   list.deselectAllRows();
   visible = library.filter(search.getText(), tag, onlyFav);
   if (tab == 1)

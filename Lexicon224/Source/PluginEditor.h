@@ -12,10 +12,13 @@ public:
   void visibilityChanged() override {
     if (!isShowing() && window)
       window->setVisible(false);
+    if (isShowing() && !browserOpened)
+      showPresetBrowser(false);
   }
 
 private:
   void timerCallback() override;
+  void showPresetBrowser(bool toggle);
   void set(const char *, float);
   void adjust(const char *, float);
   Lexicon224Processor &processor;
@@ -25,7 +28,9 @@ private:
   std::array<juce::TextButton, 8> programs, functions;
   std::array<juce::TextButton, 6> lower;
   std::array<juce::Slider, 6> sliders;
-  juce::TextButton open;
+  juce::TextButton open, presetTags{"PRESETS / TAGS"};
+  juce::Label presetName;
+  bool browserOpened = false;
   std::unique_ptr<PresetWindow> window;
   juce::Component surface;
   int held = -1;

@@ -1,6 +1,8 @@
 #pragma once
 #include "../Programs/PresetLibrary.h"
-class PresetBrowser : public juce::Component, private juce::ListBoxModel {
+class PresetBrowser : public juce::Component,
+                      private juce::ListBoxModel,
+                      private juce::Timer {
 public:
   explicit PresetBrowser(Lexicon224Processor &);
   void paint(juce::Graphics &) override;
@@ -33,6 +35,8 @@ private:
   void selectedRowsChanged(int) override;
   void returnKeyPressed(int) override;
   void refresh();
+  void timerCallback() override;
+  unsigned lastRevision = 0;
   int current() const;
   void editName(bool);
   Lexicon224Processor &processor;

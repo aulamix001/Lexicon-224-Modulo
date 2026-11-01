@@ -13,13 +13,15 @@ Lexicon224Editor::Lexicon224Editor(Lexicon224Processor &p)
       processor.selectAlgorithm(8);
       return;
     }
-    if (!window)
-      window = std::make_unique<PresetWindow>(processor);
-    if (window->isVisible())
-      window->setVisible(false);
-    else
-      window->showBeside(*this);
+    showPresetBrowser(true);
   };
+  presetTags.getProperties().set("browser", true);
+  presetTags.setTooltip("Open the floating preset and tag organizer");
+  presetTags.onClick = [this] { showPresetBrowser(true); };
+  addAndMakeVisible(presetTags);
+  presetName.setFont(PanelFonts::bold(13));
+  presetName.setColour(juce::Label::textColourId, juce::Colour(0xffe5e2d9));
+  addAndMakeVisible(presetName);
   for (int i = 0; i < 8; ++i) {
     auto &b = programs[size_t(i)];
     surface.addAndMakeVisible(b);
@@ -116,9 +118,9 @@ Lexicon224Editor::Lexicon224Editor(Lexicon224Processor &p)
     };
   }
   setResizable(true, false);
-  getConstrainer()->setFixedAspectRatio(506.0 / 865.0);
-  setResizeLimits(405, 692, 759, 1298);
-  setSize(506, 865);
+  getConstrainer()->setFixedAspectRatio(506.0 / 903.0);
+  setResizeLimits(405, 722, 759, 1355);
+  setSize(506, 903);
   timerCallback();
   startTimerHz(30);
 }
@@ -126,6 +128,15 @@ Lexicon224Editor::~Lexicon224Editor() {
   stopTimer();
   window.reset();
   setLookAndFeel(nullptr);
+}
+void Lexicon224Editor::showPresetBrowser(bool toggle) {
+  browserOpened = true;
+  if (!window)
+    window = std::make_unique<PresetWindow>(processor);
+  if (toggle && window->isVisible())
+    window->setVisible(false);
+  else
+    window->showBeside(*this);
 }
 void Lexicon224Editor::set(const char *id, float v) {
   auto *p = processor.state.getParameter(id);
@@ -140,6 +151,14 @@ void Lexicon224Editor::adjust(const char *id, float delta) {
               processor.state.getRawParameterValue(id)->load() + delta));
 }
 void Lexicon224Editor::timerCallback() {
+  if (isShowing() && !browserOpened)
+    showPresetBrowser(false);
+  auto presetId =
+      processor.state.state.getProperty("factoryPresetId").toString();
+  presetName.setText(presetId.isNotEmpty() ? processor.getProgramName(
+                                                 processor.getCurrentProgram())
+                                           : "Current settings",
+                     juce::dontSendNotification);
   for (size_t i = 0; i < 6; ++i)
     if (!sliders[i].isMouseButtonDown())
       sliders[i].setValue(processor.state.getRawParameterValue(ids[i])->load(),
@@ -188,9 +207,17 @@ void Lexicon224Editor::timerCallback() {
 void Lexicon224Editor::paint(juce::Graphics &graphics) {
   juce::Graphics::ScopedSaveState saved(graphics);
   auto &g = graphics;
-  float scale = juce::jmin(getWidth() / 506.f, getHeight() / 865.f);
+  float scale = juce::jmin(getWidth() / 506.f, getHeight() / 903.f);
   g.addTransform(juce::AffineTransform::scale(scale));
   g.fillAll(juce::Colour(0xff111212));
+  g.setGradientFill(juce::ColourGradient(
+      juce::Colour(0xff49473d), 0, 0, juce::Colour(0xff34332c), 0, 38, false));
+  g.fillRect(0, 0, 506, 38);
+  g.setColour(juce::Colour(0xff68655a));
+  g.drawLine(0, 1, 506, 1, 1);
+  g.setColour(juce::Colour(0xff161610));
+  g.drawLine(0, 37, 506, 37, 1);
+  g.addTransform(juce::AffineTransform::translation(0, 38));
   auto face = juce::Rectangle<float>(13, 37, 480, 808);
   juce::ColourGradient paper(juce::Colour(0xffe9e1c9), 30, 60,
                              juce::Colour(0xffddd3b5), 480, 820, false);
@@ -311,9 +338,18 @@ void Lexicon224Editor::paint(juce::Graphics &graphics) {
     label(bottom[i], 65 + i * 131, 786, 131, 34, 11);
 }
 void Lexicon224Editor::resized() {
-  float scale = juce::jmin(getWidth() / 506.f, getHeight() / 865.f);
+  float scale = juce::jmin(getWidth() / 506.f, getHeight() / 903.f);
   surface.setBounds(0, 0, 506, 865);
-  surface.setTransform(juce::AffineTransform::scale(scale));
+  surface.setTransform(
+      juce::AffineTransform::scale(scale).translated(0, 38 * scale));
+  presetTags.setBounds(juce::Rectangle<int>(346, 5, 151, 28)
+                           .toFloat()
+                           .transformedBy(juce::AffineTransform::scale(scale))
+                           .getSmallestIntegerContainer());
+  presetName.setBounds(juce::Rectangle<int>(12, 5, 326, 28)
+                           .toFloat()
+                           .transformedBy(juce::AffineTransform::scale(scale))
+                           .getSmallestIntegerContainer());
   meter.setBounds(62, 121, 215, 68);
   display.setBounds(277, 121, 177, 68);
   open.setBounds(458, 120, 32, 33);

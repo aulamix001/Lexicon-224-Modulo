@@ -22,8 +22,15 @@ inline juce::Font italic(float height) {
 } // namespace PanelFonts
 class PanelLook : public juce::LookAndFeel_V4 {
 public:
-  void drawButtonText(juce::Graphics &, juce::TextButton &, bool,
-                      bool) override {}
+  void drawButtonText(juce::Graphics &g, juce::TextButton &b, bool,
+                      bool) override {
+    if (b.getProperties().contains("browser")) {
+      g.setColour(juce::Colour(0xffece9df));
+      g.setFont(PanelFonts::bold(12));
+      g.drawText(b.getButtonText(), b.getLocalBounds(),
+                 juce::Justification::centred);
+    }
+  }
   static void led(juce::Graphics &g, float x, float y, bool on) {
     g.setColour(juce::Colour(0xff100e0f));
     g.fillEllipse(x - 7.2f, y - 7.2f, 14.4f, 14.4f);
@@ -45,6 +52,18 @@ public:
   }
   void drawButtonBackground(juce::Graphics &g, juce::Button &b,
                             const juce::Colour &, bool, bool down) override {
+    if (b.getProperties().contains("browser")) {
+      auto r = b.getLocalBounds().toFloat().reduced(1);
+      g.setGradientFill(juce::ColourGradient(
+          juce::Colour(down ? 0xff2c2b24 : 0xff535146), 0, 0,
+          juce::Colour(0xff302f28), 0, r.getBottom(), false));
+      g.fillRoundedRectangle(r, 2);
+      g.setColour(juce::Colour(0xff171712));
+      g.drawRoundedRectangle(r, 2, 1);
+      g.setColour(juce::Colour(0xff797568));
+      g.drawLine(r.getX() + 2, r.getY() + 1, r.getRight() - 2, r.getY() + 1, 1);
+      return;
+    }
     if (b.getProperties().contains("open")) {
       g.setColour(juce::Colour(0xff8b8978));
       auto x = b.getWidth() * .5f;

@@ -1,18 +1,18 @@
 # Lexicon224 — VST3 Windows x64
 
-C++17 / JUCE 7.0.12 algorithmic effect with a hardware-style 506×865 scalable editor and an independent floating preset browser. This is a purpose-built approximation inspired by the supplied references, not recovered Lexicon firmware or verified emulation of the photographed plugin.
+C++17 / JUCE 7.0.12 algorithmic effect with a hardware-style 506×903 scalable editor (506×865 hardware panel plus preset toolbar) and an independent floating preset browser. This is a purpose-built approximation inspired by the supplied references, not recovered Lexicon firmware or verified emulation of the photographed plugin.
 
 ## Download and install
 
-Download `Lexicon224-Windows-x64-VST3.zip` from the repository's **v0.2.4** release. Extract and copy the complete `Lexicon224.vst3` folder to `C:\Program Files\Common Files\VST3`. Replace an older version rather than keeping duplicate copies in different plugin folders. Restart the DAW and rescan VST3 plugins. The binary uses the Microsoft Visual C++ x64 runtime. Source archives are not installable plugins.
+Download `Lexicon224-Windows-x64-VST3.zip` from the repository's **v0.2.5** release. Extract and copy the complete `Lexicon224.vst3` folder to `C:\Program Files\Common Files\VST3`. Replace an older version rather than keeping duplicate copies in different plugin folders. Restart the DAW and rescan VST3 plugins. The binary uses the Microsoft Visual C++ x64 runtime. Source archives are not installable plugins.
 
 ## The 55 presets
 
 All **55 named photo presets** are now executable, deterministic reconstructed states, available both through the host's program list and the **OPEN** floating organizer. They are classified into **12 tags**. Repeated photographs across categories are references to the same preset, not duplicates. Twelve cropped/unnamed photos remain supporting evidence and are not additional presets.
 
-Click a name in the organizer or select a program in the host to load it. Search filters names/tags; a tag filters the list; the favourites star filters/toggles favourites. SAVE captures an exact full state of this plugin as a user preset; RENAME/DELETE apply to user presets only. User presets/favourites persist in `AulaMix/Lexicon224/presets.json` under JUCE's user application-data directory. The floating window is draggable, opens beside the plugin within screen bounds and hides when the editor closes. Artist metadata was not supplied, so ARTIST has an explicit empty state. Display labels Best Of and Modulation map to the original catalog tags Best off and modulacao.
+Click a name in the organizer or select a program in the host to load it. Search filters names/tags; a tag filters the list; the favourites star filters/toggles favourites. SAVE captures an exact full state of this plugin as a user preset; RENAME/DELETE apply to user presets only. User presets/favourites persist in `AulaMix/Lexicon224/presets.json` under JUCE's user application-data directory. The plugin's **PRESETS / TAGS** toolbar button and **OPEN** arrow open this organizer. The DAW's native program dropdown remains a host control and cannot display plugin-defined tag panels. The organizer opens automatically the first time this editor is shown, follows host program changes, and can be closed without reopening itself. The floating window is draggable, opens beside the plugin within screen bounds and hides when the editor closes. Artist metadata was not supplied, so ARTIST has an explicit empty state. Display labels Best Of and Modulation map to the original catalog tags Best off and modulacao.
 
-### Mapping completion and appearance in v0.2.4
+### Mapping completion and appearance in v0.2.5
 
 The 55 existing complete maps are preserved. No current named preset is missing a state. `python scripts/complete-preset-mappings.py` fills only absent/incomplete states with explicitly labeled name-based sound-design estimates, retaining any existing values. Names can suggest a room/plate/hall/chorus family and short/long/dark character; they cannot recover original settings. The completion report is included in the download ZIP. The Windows workflow runs completion before embedding the bank.
 
@@ -52,6 +52,6 @@ Cloud Debian 13: `bash scripts/bootstrap-cloud.sh` installs verified packages ro
 
 - DSP suite: nine algorithms × four sample rates × three converter profiles (108 impulse cases), extreme stability, band-dependent decay, tone damping, predelay, mono/quad behavior and quantizers.
 - Processor/library suite: all 55 named host and browser presets, full parameter mapping, repeatable recall independent of earlier settings, state persistence, favourites, tags/search and user preset CRUD. Audio from all presets is checked for finite samples.
-- Panel suite: 8+8+6 buttons plus OPEN, six faders, initial positions and four lit LEDs. Windows additionally opens and closes an actual native floating preset window.
+- Panel suite: 8+8+6 buttons plus OPEN and PRESETS / TAGS, six faders, initial positions and four lit LEDs. Windows additionally verifies automatic opening on editor attachment, both manual controls, host-program title synchronization, closing, and hiding with the editor.
 
 The tests establish implemented behavior, not identity with a hardware unit or compatibility with every DAW. No original hardware recordings were supplied. `render_browser` generates an offline panel screenshot; `render_responses` and `scripts/analyze-responses.py` support additional acoustic characterization. Noises, converter characteristics and unsupported hardware details are not asserted to be exact.

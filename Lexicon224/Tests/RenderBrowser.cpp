@@ -40,7 +40,7 @@ int main(int argc, char **argv) {
       };
   inspect(browser);
   if (!positions || programRow != 8 || functionRow != 8 || lowerRow != 6 ||
-      keys != 23 || faders != 6 || lit != 4 ||
+      keys != 24 || faders != 6 || lit != 4 ||
       processor.getCurrentAlgorithm() != 2) {
     std::cerr << "Panel structure/state mismatch";
     return 2;
@@ -48,18 +48,23 @@ int main(int argc, char **argv) {
 #if JUCE_WINDOWS
   // Verify an actual independent native preset window, not only a static
   // render.
-  juce::TextButton *opener = nullptr;
+  juce::TextButton *opener = nullptr, *tagOpener = nullptr;
   std::function<void(juce::Component &)> findOpen = [&](juce::Component &c) {
-    if (auto *b = dynamic_cast<juce::TextButton *>(&c))
+    if (auto *b = dynamic_cast<juce::TextButton *>(&c)) {
       if (b->getProperties().contains("open"))
         opener = b;
+      if (b->getProperties().contains("browser"))
+        tagOpener = b;
+    }
     for (auto *child : c.getChildren())
       findOpen(*child);
   };
   findOpen(browser);
-  if (!opener)
+  if (!opener || !tagOpener)
     return 3;
-  opener->onClick();
+  // Simulate attaching the editor to a host: the organizer must auto-open.
+  browser.addToDesktop(juce::ComponentPeer::windowIsTemporary);
+  browser.visibilityChanged();
   PresetWindow *floating = nullptr;
   for (int i = 0; i < juce::Desktop::getInstance().getNumComponents(); ++i)
     if (auto *w = dynamic_cast<PresetWindow *>(
@@ -70,6 +75,30 @@ int main(int argc, char **argv) {
   opener->onClick();
   if (floating->isVisible())
     return 5;
+  browser.visibilityChanged();
+  if (floating->isVisible())
+    return 6; // Closing the organizer must not trigger repeated auto-open.
+  tagOpener->onClick();
+  if (!floating->isVisible())
+    return 7;
+  juce::MemoryBlock original;
+  processor.getStateInformation(original);
+  processor.setCurrentProgram(10);
+  juce::Thread::sleep(150);
+  juce::Timer::callPendingTimersSynchronously();
+  bool matchingTitle = false;
+  for (auto *child : floating->getContentComponent()->getChildren())
+    if (auto *label = dynamic_cast<juce::Label *>(child))
+      if (label->getY() == 298)
+        matchingTitle = label->getText() == processor.getProgramName(10);
+  if (!matchingTitle)
+    return 8;
+  processor.setStateInformation(original.getData(), int(original.getSize()));
+  browser.setVisible(false);
+  if (floating->isVisible())
+    return 9;
+  browser.removeFromDesktop();
+  browser.setVisible(true);
 #endif
   PresetBrowser organizer(processor);
   auto image =
