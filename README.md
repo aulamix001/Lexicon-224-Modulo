@@ -4,7 +4,7 @@ C++17 / JUCE 7.0.12 algorithmic effect with a hardware-style 506×865 scalable e
 
 ## Download and install
 
-Download `Lexicon224-Windows-x64-VST3.zip` from the repository's **v0.2.2** release. Extract and copy the complete `Lexicon224.vst3` folder to `C:\Program Files\Common Files\VST3`. Replace an older version rather than keeping duplicate copies in different plugin folders. Restart the DAW and rescan VST3 plugins. The binary uses the Microsoft Visual C++ x64 runtime. Source archives are not installable plugins.
+Download `Lexicon224-Windows-x64-VST3.zip` from the repository's **v0.2.3** release. Extract and copy the complete `Lexicon224.vst3` folder to `C:\Program Files\Common Files\VST3`. Replace an older version rather than keeping duplicate copies in different plugin folders. Restart the DAW and rescan VST3 plugins. The binary uses the Microsoft Visual C++ x64 runtime. Source archives are not installable plugins.
 
 ## The 55 presets
 

@@ -213,49 +213,49 @@ void Lexicon224Editor::paint(juce::Graphics &graphics) {
   }
   for (int i = 0; i < 18; ++i) {
     float x = 22 + rng.nextFloat() * 460, y = 140 + rng.nextFloat() * 670;
-    g.setColour(juce::Colour(0x106a624d));
+    g.setColour(juce::Colour(0x076a624d));
     g.drawLine(x, y, x + 8 + rng.nextFloat() * 16,
                y - 12 - rng.nextFloat() * 14, .7f);
-    g.setColour(juce::Colour(0x20fffbea));
+    g.setColour(juce::Colour(0x0cfffbea));
     g.drawLine(x + 1, y, x + 9 + rng.nextFloat() * 16,
                y - 12 - rng.nextFloat() * 14, .6f);
   }
-  for (int i = 0; i < 11; ++i) {
-    g.setColour(juce::Colour(0xff25251e).withAlpha(.025f));
-    g.drawRoundedRectangle(face.reduced(float(i)), 3, 1);
+  // Shallow metal rails and a recessed paper face, lit from the upper left.
+  for (int i = 0; i < 18; ++i) {
+    float opacity = .11f * std::pow(1.f - i / 18.f, 2.f);
+    g.setColour(juce::Colours::black.withAlpha(opacity));
+    g.drawRoundedRectangle(face.reduced(float(i)), 2.5f, 1);
   }
   for (int x : {5, 496}) {
-    g.setGradientFill(juce::ColourGradient(juce::Colour(0xff414244), float(x),
-                                           0, juce::Colour(0xff171819),
-                                           float(x + 6), 0, false));
-    g.fillRect(x, 12, 6, 842);
+    juce::ColourGradient rail(juce::Colour(0xff101112), float(x), 0,
+                              juce::Colour(0xff151617), float(x + 7), 0, false);
+    rail.addColour(.25, juce::Colour(0xff626363));
+    rail.addColour(.48, juce::Colour(0xff333537));
+    g.setGradientFill(rail);
+    g.fillRect(x, 0, 7, 865);
+    g.setColour(juce::Colour(0x405a5b5d));
+    g.drawLine(float(x + 1), 16, float(x + 1), 848, .6f);
   }
-  g.setColour(juce::Colour(0xff797a78));
-  g.fillRoundedRectangle(287, -8, 186, 34, 3);
-  g.setColour(juce::Colour(0xff555654));
-  g.fillRect(311, 0, 138, 18);
-  g.setColour(juce::Colour(0xffc6c6bf));
-  g.fillRect(307, 23, 152, 14);
-  for (int i = 0; i < 90; ++i) {
-    float x = 20 + rng.nextFloat() * 466, y = 50 + rng.nextFloat() * 775;
-    juce::ColourGradient wash(juce::Colour(0x075e5840), x, y,
-                              juce::Colours::transparentBlack,
-                              x + 25 + rng.nextFloat() * 50, y, true);
-    g.setGradientFill(wash);
-    g.fillEllipse(x - 45, y - 30, 90, 60);
-  }
-  for (int i = 0; i < 18; ++i) {
-    float x = 22 + rng.nextFloat() * 460, y = 140 + rng.nextFloat() * 670;
-    g.setColour(juce::Colour(0x106a624d));
-    g.drawLine(x, y, x + 8 + rng.nextFloat() * 16,
-               y - 12 - rng.nextFloat() * 14, .7f);
-    g.setColour(juce::Colour(0x20fffbea));
-    g.drawLine(x + 1, y, x + 9 + rng.nextFloat() * 16,
-               y - 12 - rng.nextFloat() * 14, .6f);
-  }
+  juce::Path connector;
+  connector.addRoundedRectangle(287, -8, 186, 35, 2);
+  juce::DropShadow(juce::Colour(0xb0000000), 6, {1, 5})
+      .drawForPath(g, connector);
+  g.setGradientFill(juce::ColourGradient(
+      juce::Colour(0xff777874), 0, 0, juce::Colour(0xff424340), 0, 27, false));
+  g.fillPath(connector);
+  g.setColour(juce::Colour(0xff343632));
+  g.fillRect(301, 0, 158, 18);
+  g.setColour(juce::Colour(0xff8d8e87));
+  g.drawLine(301, 18, 459, 18, 1);
+  g.setGradientFill(juce::ColourGradient(
+      juce::Colour(0xffe2e0d3), 0, 24, juce::Colour(0xff898b82), 0, 38, false));
+  g.fillRect(307, 25, 152, 12);
   for (int i = 0; i < 11; ++i) {
-    g.setColour(juce::Colour(0xff828380));
-    g.drawLine(319.f + i * 12, 25, 317.f + i * 12, 36, 2);
+    float x = 319.f + i * 12;
+    g.setColour(juce::Colour(0xff73756f));
+    g.drawLine(x, 26, x - 1, 36, 2);
+    g.setColour(juce::Colour(0xffe0dfd4));
+    g.drawLine(x + 2, 26, x + 1, 36, 1);
   }
   auto label = [&](juce::String text, int x, int y, int w, int h,
                    float size = 11) {
@@ -264,11 +264,11 @@ void Lexicon224Editor::paint(juce::Graphics &graphics) {
     g.drawFittedText(text, x, y, w, h, juce::Justification::centred, 2, .7f);
   };
   g.setColour(juce::Colour(0xff282822));
-  g.setFont(PanelFonts::bold(39));
+  g.setFont(PanelFonts::bold(42).withHorizontalScale(.9f));
   g.drawFittedText("lexicon 224", 52, 58, 195, 42,
                    juce::Justification::centredLeft, 1, .8f);
   g.fillRect(53, 98, 192, 4);
-  g.setFont(PanelFonts::italic(31));
+  g.setFont(PanelFonts::italic(32).withHorizontalScale(.94f));
   g.drawFittedText("Digital Reverb", 266, 59, 189, 43,
                    juce::Justification::centredRight, 1, .8f);
   g.setColour(juce::Colour(0xff1a0807));
