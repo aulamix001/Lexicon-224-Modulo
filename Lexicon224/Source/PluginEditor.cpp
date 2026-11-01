@@ -9,6 +9,10 @@ Lexicon224Editor::Lexicon224Editor(Lexicon224Processor &p)
   open.setTooltip("Open preset browser");
   surface.addAndMakeVisible(open);
   open.onClick = [this] {
+    if (juce::ModifierKeys::getCurrentModifiersRealtime().isShiftDown()) {
+      processor.selectAlgorithm(8);
+      return;
+    }
     if (!window)
       window = std::make_unique<PresetWindow>(processor);
     if (window->isVisible())
@@ -19,19 +23,16 @@ Lexicon224Editor::Lexicon224Editor(Lexicon224Processor &p)
   for (int i = 0; i < 8; ++i) {
     auto &b = programs[size_t(i)];
     surface.addAndMakeVisible(b);
-    b.setTooltip(i < 6 ? processor.getProgramName(i)
-                       : "Algorithm not implemented in the current DSP");
-    b.onClick = [this, i] {
-      if (i < 6)
-        processor.setCurrentProgram(i);
-    };
+    b.setTooltip(juce::String(lex224::programs()[size_t(i)].name));
+    b.onClick = [this, i] { processor.selectAlgorithm(i); };
   }
   for (int i = 0; i < 8; ++i) {
     auto &b = functions[size_t(i)];
     surface.addAndMakeVisible(b);
     b.onClick = [this, i] {
       if (i == 0) {
-        immed = !immed;
+        immed = !bool(processor.state.state.getProperty("photoImmed", false));
+        processor.state.state.setProperty("photoImmed", immed, nullptr);
       }
       if (i == 1 || i == 2) {
         juce::PopupMenu menu;
@@ -144,9 +145,19 @@ void Lexicon224Editor::timerCallback() {
       sliders[i].setValue(processor.state.getRawParameterValue(ids[i])->load(),
                           juce::dontSendNotification);
   for (int i = 0; i < 8; ++i)
-    programs[size_t(i)].setToggleState(i == processor.getCurrentProgram(),
-                                       juce::dontSendNotification);
-  functions[0].setToggleState(immed, juce::dontSendNotification);
+    programs[size_t(i)].setToggleState(
+        ((processor.getCurrentAlgorithm() == 8) ||
+         i == processor.getCurrentAlgorithm()),
+        juce::dontSendNotification);
+  functions[0].setToggleState(
+      bool(processor.state.state.getProperty("photoImmed", false)),
+      juce::dontSendNotification);
+  functions[1].setToggleState(
+      bool(processor.state.state.getProperty("photoSysNoise", false)),
+      juce::dontSendNotification);
+  functions[2].setToggleState(
+      bool(processor.state.state.getProperty("photoRearOuts", false)),
+      juce::dontSendNotification);
   functions[3].setToggleState(
       processor.state.getRawParameterValue("mode")->load() > .5f,
       juce::dontSendNotification);

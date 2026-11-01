@@ -41,11 +41,40 @@ int main(int argc, char **argv) {
   inspect(browser);
   if (!positions || programRow != 8 || functionRow != 8 || lowerRow != 6 ||
       keys != 23 || faders != 6 || lit != 4 ||
-      processor.getCurrentProgram() != 2) {
+      processor.getCurrentAlgorithm() != 2) {
     std::cerr << "Panel structure/state mismatch";
     return 2;
   }
-  auto image = browser.createComponentSnapshot(browser.getLocalBounds());
+#if JUCE_WINDOWS
+  // Verify an actual independent native preset window, not only a static
+  // render.
+  juce::TextButton *opener = nullptr;
+  std::function<void(juce::Component &)> findOpen = [&](juce::Component &c) {
+    if (auto *b = dynamic_cast<juce::TextButton *>(&c))
+      if (b->getProperties().contains("open"))
+        opener = b;
+    for (auto *child : c.getChildren())
+      findOpen(*child);
+  };
+  findOpen(browser);
+  if (!opener)
+    return 3;
+  opener->onClick();
+  PresetWindow *floating = nullptr;
+  for (int i = 0; i < juce::Desktop::getInstance().getNumComponents(); ++i)
+    if (auto *w = dynamic_cast<PresetWindow *>(
+            juce::Desktop::getInstance().getComponent(i)))
+      floating = w;
+  if (!floating || !floating->isVisible() || !floating->getPeer())
+    return 4;
+  opener->onClick();
+  if (floating->isVisible())
+    return 5;
+#endif
+  PresetBrowser organizer(processor);
+  auto image =
+      argc > 2 ? organizer.createComponentSnapshot(organizer.getLocalBounds())
+               : browser.createComponentSnapshot(browser.getLocalBounds());
   juce::File output = juce::File::getCurrentWorkingDirectory().getChildFile(
       argc > 1 ? argv[1] : "preset-browser.png");
   juce::FileOutputStream stream(output);

@@ -17,8 +17,11 @@ public:
   bool producesMidi() const override { return false; }
   bool isMidiEffect() const override { return false; }
   double getTailLengthSeconds() const override { return 70; }
-  int getNumPrograms() override { return 6; }
+  int getNumPrograms() override { return 55; }
   int getCurrentProgram() override;
+  int getCurrentAlgorithm() const;
+  void selectAlgorithm(int);
+  void loadPhotoPreset(const juce::var &);
   void setCurrentProgram(int) override;
   const juce::String getProgramName(int) override;
   void changeProgramName(int, const juce::String &) override {}
@@ -34,8 +37,8 @@ public:
 private:
   static juce::AudioProcessorValueTreeState::ParameterLayout layout();
   lex224::Settings settings() const;
-  std::array<lex224::Reverb224, 18> engines;
-  std::array<float, 18> weights{};
+  std::array<lex224::Reverb224, 27> engines;
+  std::array<float, 27> weights{};
   double sampleRateHz = 48000;
   float wet = 1;
   RegisterStore registers;

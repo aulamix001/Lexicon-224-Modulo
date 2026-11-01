@@ -19,5 +19,5 @@ struct Program {
   std::array<double, 8> tapTimes{};
   std::array<float, 8> tapGains{};
 };
-const std::array<Program, 6> &programs();
+const std::array<Program, 9> &programs();
 } // namespace lex224

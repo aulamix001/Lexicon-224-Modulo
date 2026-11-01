@@ -101,7 +101,31 @@
           "image_file": null,
           "note": "Visible settings match earlier references within estimation tolerance; hidden values remain unconfirmed."
         }
-      ]
+      ],
+      "visual_reconstruction": {
+        "method": "photo-slot-to-host-range-v1",
+        "verified_original": false,
+        "loadable_with_current_dsp": true,
+        "warning": "Reconstructed from estimated photo positions; original slider transfer curves are unknown. Hidden values use explicit defaults. First named reference resolves conflicting LEDs for this reconstruction only.",
+        "parameters": {
+          "program": 1,
+          "mode": true,
+          "optimize": true,
+          "modeRate": 2,
+          "decayAmount": 7,
+          "mix": 100,
+          "mono": false,
+          "converter": 0,
+          "diffusion": 0.5,
+          "bass": 3.6453301509351705,
+          "mid": 7.458619626478396,
+          "crossover": 244.18598917982393,
+          "treble": 4116.719742107638,
+          "depth": 0,
+          "predelay": 20
+        }
+      },
+      "implemented_algorithm_index": 1
     },
     {
       "id": "vocal-ballad-vox-plate",
@@ -203,7 +227,31 @@
           "image_file": null,
           "note": "Visible settings match earlier references within visual estimation tolerance; hidden numerical values remain unconfirmed."
         }
-      ]
+      ],
+      "visual_reconstruction": {
+        "method": "photo-slot-to-host-range-v1",
+        "verified_original": false,
+        "loadable_with_current_dsp": true,
+        "warning": "Reconstructed from estimated photo positions; original slider transfer curves are unknown. Hidden values use explicit defaults. First named reference resolves conflicting LEDs for this reconstruction only.",
+        "parameters": {
+          "program": 4,
+          "mode": true,
+          "optimize": false,
+          "modeRate": 2,
+          "decayAmount": 7,
+          "mix": 100,
+          "mono": false,
+          "converter": 0,
+          "diffusion": 0.5,
+          "bass": 0.7665706051873198,
+          "mid": 4.385663289515373,
+          "crossover": 151.40701366847475,
+          "treble": 8296.209168201127,
+          "depth": 59,
+          "predelay": 61
+        }
+      },
+      "implemented_algorithm_index": 4
     },
     {
       "id": "vocal-brooklyn-bvs",
@@ -305,7 +353,31 @@
           "image_file": null,
           "note": "Visible settings match earlier references within visual estimation tolerance; hidden numerical values remain unconfirmed."
         }
-      ]
+      ],
+      "visual_reconstruction": {
+        "method": "photo-slot-to-host-range-v1",
+        "verified_original": false,
+        "loadable_with_current_dsp": true,
+        "warning": "Reconstructed from estimated photo positions; original slider transfer curves are unknown. Hidden values use explicit defaults. First named reference resolves conflicting LEDs for this reconstruction only.",
+        "parameters": {
+          "program": 1,
+          "mode": true,
+          "optimize": true,
+          "modeRate": 2,
+          "decayAmount": 7,
+          "mix": 100,
+          "mono": false,
+          "converter": 0,
+          "diffusion": 0.5,
+          "bass": 1.1216790281850229,
+          "mid": 7.458619626478396,
+          "crossover": 384.15774667058577,
+          "treble": 9837.307642548676,
+          "depth": 0,
+          "predelay": 89
+        }
+      },
+      "implemented_algorithm_index": 1
     },
     {
       "id": "vocal-smooth-vocal-hall",
@@ -400,7 +472,31 @@
           "tag_assignment": "Long inherited from preceding batch",
           "note": "Visible settings match earlier references within estimation tolerance; hidden numerical values remain unconfirmed."
         }
-      ]
+      ],
+      "visual_reconstruction": {
+        "method": "photo-slot-to-host-range-v1",
+        "verified_original": false,
+        "loadable_with_current_dsp": true,
+        "warning": "Reconstructed from estimated photo positions; original slider transfer curves are unknown. Hidden values use explicit defaults. First named reference resolves conflicting LEDs for this reconstruction only.",
+        "parameters": {
+          "program": 2,
+          "mode": true,
+          "optimize": true,
+          "modeRate": 2,
+          "decayAmount": 5,
+          "mix": 100,
+          "mono": false,
+          "converter": 0,
+          "diffusion": 0.5,
+          "bass": 5.257442251914745,
+          "mid": 6.845902358905249,
+          "crossover": 162.40239004334046,
+          "treble": 8632.958427087904,
+          "depth": 22,
+          "predelay": 24
+        }
+      },
+      "implemented_algorithm_index": 2
     },
     {
       "id": "vocal-smooth-vox-hall",
@@ -490,7 +586,31 @@
           "image_file": null,
           "note": "Visible settings match earlier Vocal reference within estimation tolerance; hidden settings remain unconfirmed."
         }
-      ]
+      ],
+      "visual_reconstruction": {
+        "method": "photo-slot-to-host-range-v1",
+        "verified_original": false,
+        "loadable_with_current_dsp": true,
+        "warning": "Reconstructed from estimated photo positions; original slider transfer curves are unknown. Hidden values use explicit defaults. First named reference resolves conflicting LEDs for this reconstruction only.",
+        "parameters": {
+          "program": 0,
+          "mode": true,
+          "optimize": false,
+          "modeRate": 2,
+          "decayAmount": 5,
+          "mix": 100,
+          "mono": false,
+          "converter": 0,
+          "diffusion": 0.5,
+          "bass": 0.6476374838325619,
+          "mid": 6.276235061752974,
+          "crossover": 174.99999999999994,
+          "treble": 10900.0,
+          "depth": 35,
+          "predelay": 24
+        }
+      },
+      "implemented_algorithm_index": 0
     },
     {
       "id": "vocal-thicker-voc-plate",
@@ -581,7 +701,31 @@
           "tag_assignment": "Medium inherited from preceding batch",
           "note": "Visible settings match earlier references within estimation tolerance; hidden numerical values remain unconfirmed."
         }
-      ]
+      ],
+      "visual_reconstruction": {
+        "method": "photo-slot-to-host-range-v1",
+        "verified_original": false,
+        "loadable_with_current_dsp": true,
+        "warning": "Reconstructed from estimated photo positions; original slider transfer curves are unknown. Hidden values use explicit defaults. First named reference resolves conflicting LEDs for this reconstruction only.",
+        "parameters": {
+          "program": 4,
+          "mode": true,
+          "optimize": true,
+          "modeRate": 2,
+          "decayAmount": 7,
+          "mix": 100,
+          "mono": false,
+          "converter": 0,
+          "diffusion": 0.5,
+          "bass": 0.9059952164305163,
+          "mid": 1.5723651111705306,
+          "crossover": 223.7829261526902,
+          "treble": 10542.753767708558,
+          "depth": 48,
+          "predelay": 102
+        }
+      },
+      "implemented_algorithm_index": 4
     },
     {
       "id": "vocal-vocal-slap",
@@ -679,7 +823,31 @@
           "tag_assignment": "Short inherited from preceding batch",
           "note": "Visible settings match earlier reference within estimation tolerance; all eight program LEDs remain lit, algorithm unconfirmed."
         }
-      ]
+      ],
+      "visual_reconstruction": {
+        "method": "photo-slot-to-host-range-v1",
+        "verified_original": false,
+        "loadable_with_current_dsp": true,
+        "warning": "Reconstructed from estimated photo positions; original slider transfer curves are unknown. Hidden values use explicit defaults. First named reference resolves conflicting LEDs for this reconstruction only.",
+        "parameters": {
+          "program": 8,
+          "mode": true,
+          "optimize": false,
+          "modeRate": 2,
+          "decayAmount": 5,
+          "mix": 100,
+          "mono": false,
+          "converter": 0,
+          "diffusion": 0.5,
+          "bass": 4.0,
+          "mid": 4.0,
+          "crossover": 999.9999999999998,
+          "treble": 4399.999999999999,
+          "depth": 0,
+          "predelay": 105
+        }
+      },
+      "implemented_algorithm_index": 8
     },
     {
       "id": "vocal-vocal-wide-chorus",
@@ -776,7 +944,31 @@
           "image_file": null,
           "note": "Visible settings match the earlier Vocal reference within visual estimation tolerance; hidden parameter equality unconfirmed."
         }
-      ]
+      ],
+      "visual_reconstruction": {
+        "method": "photo-slot-to-host-range-v1",
+        "verified_original": false,
+        "loadable_with_current_dsp": true,
+        "warning": "Reconstructed from estimated photo positions; original slider transfer curves are unknown. Hidden values use explicit defaults. First named reference resolves conflicting LEDs for this reconstruction only.",
+        "parameters": {
+          "program": 8,
+          "mode": true,
+          "optimize": false,
+          "modeRate": 2,
+          "decayAmount": 5,
+          "mix": 100,
+          "mono": false,
+          "converter": 0,
+          "diffusion": 0.5,
+          "bass": 4.0,
+          "mid": 20.447687857421982,
+          "crossover": 3950.552683916502,
+          "treble": 5427.486505704906,
+          "depth": 0,
+          "predelay": 16
+        }
+      },
+      "implemented_algorithm_index": 8
     },
     {
       "id": "vocal-vox-plate",
@@ -875,7 +1067,31 @@
           "tag_assignment": "Medium inherited from preceding batch",
           "note": "Visible settings match earlier references within estimation tolerance; hidden numerical values remain unconfirmed."
         }
-      ]
+      ],
+      "visual_reconstruction": {
+        "method": "photo-slot-to-host-range-v1",
+        "verified_original": false,
+        "loadable_with_current_dsp": true,
+        "warning": "Reconstructed from estimated photo positions; original slider transfer curves are unknown. Hidden values use explicit defaults. First named reference resolves conflicting LEDs for this reconstruction only.",
+        "parameters": {
+          "program": 1,
+          "mode": true,
+          "optimize": true,
+          "modeRate": 2,
+          "decayAmount": 7,
+          "mix": 100,
+          "mono": false,
+          "converter": 0,
+          "diffusion": 0.5,
+          "bass": 6.845902358905249,
+          "mid": 1.3201940426851626,
+          "crossover": 350.56752983068566,
+          "treble": 10542.753767708558,
+          "depth": 1,
+          "predelay": 127
+        }
+      },
+      "implemented_algorithm_index": 1
     },
     {
       "id": "best-off-a-little-bit-of-hall",
@@ -983,7 +1199,31 @@
           "image_file": null,
           "note": "Visible settings match earlier references within estimation tolerance; hidden numerical values remain unconfirmed."
         }
-      ]
+      ],
+      "visual_reconstruction": {
+        "method": "photo-slot-to-host-range-v1",
+        "verified_original": false,
+        "loadable_with_current_dsp": true,
+        "warning": "Reconstructed from estimated photo positions; original slider transfer curves are unknown. Hidden values use explicit defaults. First named reference resolves conflicting LEDs for this reconstruction only.",
+        "parameters": {
+          "program": 0,
+          "mode": true,
+          "optimize": true,
+          "modeRate": 2,
+          "decayAmount": 5,
+          "mix": 100,
+          "mono": false,
+          "converter": 0,
+          "diffusion": 0.5,
+          "bass": 5.257442251914745,
+          "mid": 3.3198627831579213,
+          "crossover": 1172.0260827687505,
+          "treble": 10012.521806516024,
+          "depth": 18,
+          "predelay": 24
+        }
+      },
+      "implemented_algorithm_index": 0
     },
     {
       "id": "best-off-atmosphere",
@@ -1091,7 +1331,31 @@
           "image_file": null,
           "note": "Visible settings match earlier references within visual estimation tolerance; hidden numerical values remain unconfirmed."
         }
-      ]
+      ],
+      "visual_reconstruction": {
+        "method": "photo-slot-to-host-range-v1",
+        "verified_original": false,
+        "loadable_with_current_dsp": true,
+        "warning": "Reconstructed from estimated photo positions; original slider transfer curves are unknown. Hidden values use explicit defaults. First named reference resolves conflicting LEDs for this reconstruction only.",
+        "parameters": {
+          "program": 5,
+          "mode": true,
+          "optimize": true,
+          "modeRate": 2,
+          "decayAmount": 5,
+          "mix": 100,
+          "mono": false,
+          "converter": 0,
+          "diffusion": 0.5,
+          "bass": 4.0,
+          "mid": 50.034598342190506,
+          "crossover": 100.23403456759286,
+          "treble": 4543.410398992033,
+          "depth": 62,
+          "predelay": 24
+        }
+      },
+      "implemented_algorithm_index": 5
     },
     {
       "id": "best-off-big-80s-snare",
@@ -1200,7 +1464,31 @@
           "image_file": null,
           "note": "Visible settings match earlier references within estimation tolerance; hidden numerical values remain unconfirmed."
         }
-      ]
+      ],
+      "visual_reconstruction": {
+        "method": "photo-slot-to-host-range-v1",
+        "verified_original": false,
+        "loadable_with_current_dsp": true,
+        "warning": "Reconstructed from estimated photo positions; original slider transfer curves are unknown. Hidden values use explicit defaults. First named reference resolves conflicting LEDs for this reconstruction only.",
+        "parameters": {
+          "program": 5,
+          "mode": true,
+          "optimize": false,
+          "modeRate": 2,
+          "decayAmount": 5,
+          "mix": 100,
+          "mono": false,
+          "converter": 0,
+          "diffusion": 0.5,
+          "bass": 0.7332497617109067,
+          "mid": 1.1216790281850229,
+          "crossover": 112.01549909831866,
+          "treble": 4543.410398992033,
+          "depth": 0,
+          "predelay": 24
+        }
+      },
+      "implemented_algorithm_index": 5
     },
     {
       "id": "best-off-dis-drum-room",
@@ -1316,7 +1604,31 @@
           "tag_assignment": "Bright inherited from preceding batch",
           "note": "Visible settings match earlier references within estimation tolerance; hidden numerical values remain unconfirmed."
         }
-      ]
+      ],
+      "visual_reconstruction": {
+        "method": "photo-slot-to-host-range-v1",
+        "verified_original": false,
+        "loadable_with_current_dsp": true,
+        "warning": "Reconstructed from estimated photo positions; original slider transfer curves are unknown. Hidden values use explicit defaults. First named reference resolves conflicting LEDs for this reconstruction only.",
+        "parameters": {
+          "program": 6,
+          "mode": true,
+          "optimize": false,
+          "modeRate": 2,
+          "decayAmount": 5,
+          "mix": 100,
+          "mono": false,
+          "converter": 0,
+          "diffusion": 0.5,
+          "bass": 1.2147852957651284,
+          "mid": 0.8521805313251504,
+          "crossover": 1083.302548441103,
+          "treble": 7306.582676169678,
+          "depth": 23,
+          "predelay": 0
+        }
+      },
+      "implemented_algorithm_index": 6
     },
     {
       "id": "best-off-echo-robo-voc",
@@ -1415,7 +1727,31 @@
           "tag_assignment": "Bright inherited from preceding batch",
           "note": "Visible settings match earlier references within estimation tolerance; hidden numerical values remain unconfirmed."
         }
-      ]
+      ],
+      "visual_reconstruction": {
+        "method": "photo-slot-to-host-range-v1",
+        "verified_original": false,
+        "loadable_with_current_dsp": true,
+        "warning": "Reconstructed from estimated photo positions; original slider transfer curves are unknown. Hidden values use explicit defaults. First named reference resolves conflicting LEDs for this reconstruction only.",
+        "parameters": {
+          "program": 3,
+          "mode": true,
+          "optimize": true,
+          "modeRate": 2,
+          "decayAmount": 5,
+          "mix": 100,
+          "mono": false,
+          "converter": 0,
+          "diffusion": 0.5,
+          "bass": 3.3198627831579213,
+          "mid": 10.385622208328995,
+          "crossover": 223.7829261526902,
+          "treble": 9144.287006608562,
+          "depth": 0,
+          "predelay": 185
+        }
+      },
+      "implemented_algorithm_index": 3
     },
     {
       "id": "best-off-heavy-echo",
@@ -1523,7 +1859,31 @@
           "tag_assignment": "Short inherited from preceding batch",
           "note": "Visible settings match earlier references within estimation tolerance; hidden numerical values remain unconfirmed."
         }
-      ]
+      ],
+      "visual_reconstruction": {
+        "method": "photo-slot-to-host-range-v1",
+        "verified_original": false,
+        "loadable_with_current_dsp": true,
+        "warning": "Reconstructed from estimated photo positions; original slider transfer curves are unknown. Hidden values use explicit defaults. First named reference resolves conflicting LEDs for this reconstruction only.",
+        "parameters": {
+          "program": 7,
+          "mode": true,
+          "optimize": false,
+          "modeRate": 2,
+          "decayAmount": 5,
+          "mix": 100,
+          "mono": false,
+          "converter": 0,
+          "diffusion": 0.5,
+          "bass": 0.6,
+          "mid": 0.7665706051873198,
+          "crossover": 116.00894315690613,
+          "treble": 9144.287006608562,
+          "depth": 24,
+          "predelay": 99
+        }
+      },
+      "implemented_algorithm_index": 7
     },
     {
       "id": "best-off-in-the-name-of-lex",
@@ -1667,7 +2027,31 @@
           "note": "Decay Optimization LED appears ON, unlike OFF in earlier named references; retain per-source observation without overwriting earlier mapping."
         }
       ],
-      "modifier_mapping_status": "conflicting_source_observations"
+      "modifier_mapping_status": "conflicting_source_observations",
+      "visual_reconstruction": {
+        "method": "photo-slot-to-host-range-v1",
+        "verified_original": false,
+        "loadable_with_current_dsp": true,
+        "warning": "Reconstructed from estimated photo positions; original slider transfer curves are unknown. Hidden values use explicit defaults. First named reference resolves conflicting LEDs for this reconstruction only.",
+        "parameters": {
+          "program": 4,
+          "mode": true,
+          "optimize": false,
+          "modeRate": 2,
+          "decayAmount": 7,
+          "mix": 100,
+          "mono": false,
+          "converter": 0,
+          "diffusion": 0.5,
+          "bass": 0.6081605195624912,
+          "mid": 4.0,
+          "crossover": 848.8286805200859,
+          "treble": 10900.0,
+          "depth": 71,
+          "predelay": 0
+        }
+      },
+      "implemented_algorithm_index": 4
     },
     {
       "id": "best-off-lingering-hall",
@@ -1775,7 +2159,31 @@
           "tag_assignment": "Dark inherited from preceding batch",
           "note": "Visible settings match earlier references within estimation tolerance; hidden values remain unconfirmed."
         }
-      ]
+      ],
+      "visual_reconstruction": {
+        "method": "photo-slot-to-host-range-v1",
+        "verified_original": false,
+        "loadable_with_current_dsp": true,
+        "warning": "Reconstructed from estimated photo positions; original slider transfer curves are unknown. Hidden values use explicit defaults. First named reference resolves conflicting LEDs for this reconstruction only.",
+        "parameters": {
+          "program": 2,
+          "mode": true,
+          "optimize": true,
+          "modeRate": 2,
+          "decayAmount": 5,
+          "mix": 100,
+          "mono": false,
+          "converter": 0,
+          "diffusion": 0.5,
+          "bass": 5.257442251914745,
+          "mid": 17.72553653689257,
+          "crossover": 2918.7236288793033,
+          "treble": 4543.410398992033,
+          "depth": 20,
+          "predelay": 24
+        }
+      },
+      "implemented_algorithm_index": 2
     },
     {
       "id": "best-off-live-room",
@@ -1892,7 +2300,31 @@
           "tag_assignment": "Drums inherited from preceding batch",
           "note": "Visible settings match earlier references within estimation tolerance; hidden values remain unconfirmed."
         }
-      ]
+      ],
+      "visual_reconstruction": {
+        "method": "photo-slot-to-host-range-v1",
+        "verified_original": false,
+        "loadable_with_current_dsp": true,
+        "warning": "Reconstructed from estimated photo positions; original slider transfer curves are unknown. Hidden values use explicit defaults. First named reference resolves conflicting LEDs for this reconstruction only.",
+        "parameters": {
+          "program": 6,
+          "mode": true,
+          "optimize": false,
+          "modeRate": 2,
+          "decayAmount": 5,
+          "mix": 100,
+          "mono": false,
+          "converter": 0,
+          "diffusion": 0.5,
+          "bass": 0.6,
+          "mid": 1.2147852957651284,
+          "crossover": 116.00894315690613,
+          "treble": 2043.159359399084,
+          "depth": 44,
+          "predelay": 35
+        }
+      },
+      "implemented_algorithm_index": 6
     },
     {
       "id": "best-off-lush-piano",
@@ -2000,7 +2432,31 @@
           "tag_assignment": "Bright inherited from preceding batch",
           "note": "Visible settings match earlier references within estimation tolerance; hidden numerical values remain unconfirmed."
         }
-      ]
+      ],
+      "visual_reconstruction": {
+        "method": "photo-slot-to-host-range-v1",
+        "verified_original": false,
+        "loadable_with_current_dsp": true,
+        "warning": "Reconstructed from estimated photo positions; original slider transfer curves are unknown. Hidden values use explicit defaults. First named reference resolves conflicting LEDs for this reconstruction only.",
+        "parameters": {
+          "program": 5,
+          "mode": true,
+          "optimize": true,
+          "modeRate": 2,
+          "decayAmount": 5,
+          "mix": 100,
+          "mono": false,
+          "converter": 0,
+          "diffusion": 0.5,
+          "bass": 6.845902358905249,
+          "mid": 32.68049529074894,
+          "crossover": 1830.2318701578877,
+          "treble": 7306.582676169678,
+          "depth": 55,
+          "predelay": 24
+        }
+      },
+      "implemented_algorithm_index": 5
     },
     {
       "id": "hall-default",
@@ -2097,7 +2553,31 @@
           "image_file": null,
           "note": "Visible settings match earlier references within visual estimation tolerance; hidden numerical values remain unconfirmed."
         }
-      ]
+      ],
+      "visual_reconstruction": {
+        "method": "photo-slot-to-host-range-v1",
+        "verified_original": false,
+        "loadable_with_current_dsp": true,
+        "warning": "Reconstructed from estimated photo positions; original slider transfer curves are unknown. Hidden values use explicit defaults. First named reference resolves conflicting LEDs for this reconstruction only.",
+        "parameters": {
+          "program": 5,
+          "mode": true,
+          "optimize": true,
+          "modeRate": 2,
+          "decayAmount": 5,
+          "mix": 100,
+          "mono": false,
+          "converter": 0,
+          "diffusion": 0.5,
+          "bass": 4.0,
+          "mid": 1.2147852957651284,
+          "crossover": 116.00894315690613,
+          "treble": 9144.287006608562,
+          "depth": 24,
+          "predelay": 24
+        }
+      },
+      "implemented_algorithm_index": 5
     },
     {
       "id": "hall-horn-hall",
@@ -2196,7 +2676,31 @@
           "tag_assignment": "Bright inherited from preceding batch",
           "note": "Visible settings match earlier references within estimation tolerance; hidden numerical values remain unconfirmed."
         }
-      ]
+      ],
+      "visual_reconstruction": {
+        "method": "photo-slot-to-host-range-v1",
+        "verified_original": false,
+        "loadable_with_current_dsp": true,
+        "warning": "Reconstructed from estimated photo positions; original slider transfer curves are unknown. Hidden values use explicit defaults. First named reference resolves conflicting LEDs for this reconstruction only.",
+        "parameters": {
+          "program": 5,
+          "mode": true,
+          "optimize": false,
+          "modeRate": 2,
+          "decayAmount": 5,
+          "mix": 100,
+          "mono": false,
+          "converter": 0,
+          "diffusion": 0.5,
+          "bass": 3.021867930309045,
+          "mid": 7.458619626478396,
+          "crossover": 223.7829261526902,
+          "treble": 10900.0,
+          "depth": 51,
+          "predelay": 70
+        }
+      },
+      "implemented_algorithm_index": 5
     },
     {
       "id": "hall-loose-hall",
@@ -2304,7 +2808,31 @@
           "tag_assignment": "Bright inherited from preceding batch",
           "note": "Visible settings match earlier references within estimation tolerance; hidden numerical values remain unconfirmed."
         }
-      ]
+      ],
+      "visual_reconstruction": {
+        "method": "photo-slot-to-host-range-v1",
+        "verified_original": false,
+        "loadable_with_current_dsp": true,
+        "warning": "Reconstructed from estimated photo positions; original slider transfer curves are unknown. Hidden values use explicit defaults. First named reference resolves conflicting LEDs for this reconstruction only.",
+        "parameters": {
+          "program": 5,
+          "mode": true,
+          "optimize": false,
+          "modeRate": 2,
+          "decayAmount": 5,
+          "mix": 100,
+          "mono": false,
+          "converter": 0,
+          "diffusion": 0.5,
+          "bass": 1.3201940426851626,
+          "mid": 4.0,
+          "crossover": 223.7829261526902,
+          "treble": 10900.0,
+          "depth": 41,
+          "predelay": 35
+        }
+      },
+      "implemented_algorithm_index": 5
     },
     {
       "id": "hall-percussive-slap",
@@ -2395,7 +2923,31 @@
           "tag_assignment": "Bright inherited from preceding batch",
           "note": "Visible settings match earlier references within estimation tolerance; hidden numerical values remain unconfirmed."
         }
-      ]
+      ],
+      "visual_reconstruction": {
+        "method": "photo-slot-to-host-range-v1",
+        "verified_original": false,
+        "loadable_with_current_dsp": true,
+        "warning": "Reconstructed from estimated photo positions; original slider transfer curves are unknown. Hidden values use explicit defaults. First named reference resolves conflicting LEDs for this reconstruction only.",
+        "parameters": {
+          "program": 5,
+          "mode": true,
+          "optimize": false,
+          "modeRate": 2,
+          "decayAmount": 5,
+          "mix": 100,
+          "mono": false,
+          "converter": 0,
+          "diffusion": 0.5,
+          "bass": 0.6,
+          "mid": 0.6,
+          "crossover": 100.0,
+          "treble": 10900.0,
+          "depth": 0,
+          "predelay": 24
+        }
+      },
+      "implemented_algorithm_index": 5
     },
     {
       "id": "hall-plateau-piano",
@@ -2503,7 +3055,31 @@
           "tag_assignment": "Bright inherited from preceding batch",
           "note": "Visible settings match earlier references within estimation tolerance; hidden numerical values remain unconfirmed."
         }
-      ]
+      ],
+      "visual_reconstruction": {
+        "method": "photo-slot-to-host-range-v1",
+        "verified_original": false,
+        "loadable_with_current_dsp": true,
+        "warning": "Reconstructed from estimated photo positions; original slider transfer curves are unknown. Hidden values use explicit defaults. First named reference resolves conflicting LEDs for this reconstruction only.",
+        "parameters": {
+          "program": 5,
+          "mode": true,
+          "optimize": false,
+          "modeRate": 2,
+          "decayAmount": 5,
+          "mix": 100,
+          "mono": false,
+          "converter": 0,
+          "diffusion": 0.5,
+          "bass": 26.882829598300596,
+          "mid": 39.416594359063424,
+          "crossover": 1962.9752377564523,
+          "treble": 10900.0,
+          "depth": 59,
+          "predelay": 67
+        }
+      },
+      "implemented_algorithm_index": 5
     },
     {
       "id": "hall-room-4-growth",
@@ -2603,7 +3179,31 @@
           "tag_assignment": "Dark inherited from preceding batch",
           "note": "Visible settings match earlier references within estimation tolerance; hidden values unconfirmed."
         }
-      ]
+      ],
+      "visual_reconstruction": {
+        "method": "photo-slot-to-host-range-v1",
+        "verified_original": false,
+        "loadable_with_current_dsp": true,
+        "warning": "Reconstructed from estimated photo positions; original slider transfer curves are unknown. Hidden values use explicit defaults. First named reference resolves conflicting LEDs for this reconstruction only.",
+        "parameters": {
+          "program": 5,
+          "mode": true,
+          "optimize": true,
+          "modeRate": 2,
+          "decayAmount": 5,
+          "mix": 100,
+          "mono": false,
+          "converter": 0,
+          "diffusion": 0.5,
+          "bass": 6.845902358905249,
+          "mid": 1.5723651111705306,
+          "crossover": 420.87939032637547,
+          "treble": 7797.4606836200155,
+          "depth": 14,
+          "predelay": 24
+        }
+      },
+      "implemented_algorithm_index": 5
     },
     {
       "id": "hall-shuffle-slap",
@@ -2694,7 +3294,31 @@
           "tag_assignment": "Bright inherited from preceding batch",
           "note": "Visible settings match earlier references within estimation tolerance; hidden numerical values remain unconfirmed."
         }
-      ]
+      ],
+      "visual_reconstruction": {
+        "method": "photo-slot-to-host-range-v1",
+        "verified_original": false,
+        "loadable_with_current_dsp": true,
+        "warning": "Reconstructed from estimated photo positions; original slider transfer curves are unknown. Hidden values use explicit defaults. First named reference resolves conflicting LEDs for this reconstruction only.",
+        "parameters": {
+          "program": 5,
+          "mode": false,
+          "optimize": false,
+          "modeRate": 2,
+          "decayAmount": 5,
+          "mix": 100,
+          "mono": false,
+          "converter": 0,
+          "diffusion": 0.5,
+          "bass": 0.6001514083775551,
+          "mid": 0.6001514083775551,
+          "crossover": 205.54860250376413,
+          "treble": 5883.960299156027,
+          "depth": 45,
+          "predelay": 152
+        }
+      },
+      "implemented_algorithm_index": 5
     },
     {
       "id": "hall-slap-hall",
@@ -2794,7 +3418,31 @@
           "tag_assignment": "Dark inherited from preceding batch",
           "note": "Visible settings match earlier references within estimation tolerance; hidden values unconfirmed."
         }
-      ]
+      ],
+      "visual_reconstruction": {
+        "method": "photo-slot-to-host-range-v1",
+        "verified_original": false,
+        "loadable_with_current_dsp": true,
+        "warning": "Reconstructed from estimated photo positions; original slider transfer curves are unknown. Hidden values use explicit defaults. First named reference resolves conflicting LEDs for this reconstruction only.",
+        "parameters": {
+          "program": 2,
+          "mode": true,
+          "optimize": true,
+          "modeRate": 2,
+          "decayAmount": 5,
+          "mix": 100,
+          "mono": false,
+          "converter": 0,
+          "diffusion": 0.5,
+          "bass": 14.191877757284766,
+          "mid": 9.577724377715281,
+          "crossover": 116.00894315690613,
+          "treble": 7144.751108440518,
+          "depth": 22,
+          "predelay": 25
+        }
+      },
+      "implemented_algorithm_index": 2
     },
     {
       "id": "hall-wider-1",
@@ -2928,7 +3576,31 @@
           }
         }
       ],
-      "modifier_mapping_status": "conflicting_source_observations"
+      "modifier_mapping_status": "conflicting_source_observations",
+      "visual_reconstruction": {
+        "method": "photo-slot-to-host-range-v1",
+        "verified_original": false,
+        "loadable_with_current_dsp": true,
+        "warning": "Reconstructed from estimated photo positions; original slider transfer curves are unknown. Hidden values use explicit defaults. First named reference resolves conflicting LEDs for this reconstruction only.",
+        "parameters": {
+          "program": 5,
+          "mode": true,
+          "optimize": false,
+          "modeRate": 2,
+          "decayAmount": 5,
+          "mix": 100,
+          "mono": false,
+          "converter": 0,
+          "diffusion": 0.5,
+          "bass": 0.6,
+          "mid": 0.6,
+          "crossover": 420.87939032637547,
+          "treble": 9316.352179121619,
+          "depth": 0,
+          "predelay": 24
+        }
+      },
+      "implemented_algorithm_index": 5
     },
     {
       "id": "plate-80s-snare",
@@ -3033,7 +3705,31 @@
           "image_file": null,
           "note": "Visible settings match earlier references within estimation tolerance; hidden numerical values remain unconfirmed."
         }
-      ]
+      ],
+      "visual_reconstruction": {
+        "method": "photo-slot-to-host-range-v1",
+        "verified_original": false,
+        "loadable_with_current_dsp": true,
+        "warning": "Reconstructed from estimated photo positions; original slider transfer curves are unknown. Hidden values use explicit defaults. First named reference resolves conflicting LEDs for this reconstruction only.",
+        "parameters": {
+          "program": 4,
+          "mode": false,
+          "optimize": false,
+          "modeRate": 2,
+          "decayAmount": 7,
+          "mix": 100,
+          "mono": false,
+          "converter": 0,
+          "diffusion": 0.5,
+          "bass": 0.6,
+          "mid": 0.6,
+          "crossover": 100.0,
+          "treble": 10900.0,
+          "depth": 36,
+          "predelay": 92
+        }
+      },
+      "implemented_algorithm_index": 4
     },
     {
       "id": "plate-90s-big-kick",
@@ -3153,7 +3849,31 @@
           "note": "Decay Optimization LED appears ON here, unlike OFF in previous references; preserve per-image state without overwriting earlier mapping."
         }
       ],
-      "modifier_mapping_status": "conflicting_source_observations"
+      "modifier_mapping_status": "conflicting_source_observations",
+      "visual_reconstruction": {
+        "method": "photo-slot-to-host-range-v1",
+        "verified_original": false,
+        "loadable_with_current_dsp": true,
+        "warning": "Reconstructed from estimated photo positions; original slider transfer curves are unknown. Hidden values use explicit defaults. First named reference resolves conflicting LEDs for this reconstruction only.",
+        "parameters": {
+          "program": 4,
+          "mode": true,
+          "optimize": false,
+          "modeRate": 2,
+          "decayAmount": 7,
+          "mix": 100,
+          "mono": false,
+          "converter": 0,
+          "diffusion": 0.5,
+          "bass": 1.5723651111705306,
+          "mid": 0.6255577621877388,
+          "crossover": 100.23403456759286,
+          "treble": 1699.2495269502629,
+          "depth": 18,
+          "predelay": 107
+        }
+      },
+      "implemented_algorithm_index": 4
     },
     {
       "id": "plate-density-plate",
@@ -3252,7 +3972,31 @@
           "tag_assignment": "Bright inherited from preceding batch",
           "note": "Visible settings match earlier references within estimation tolerance; hidden numerical values remain unconfirmed."
         }
-      ]
+      ],
+      "visual_reconstruction": {
+        "method": "photo-slot-to-host-range-v1",
+        "verified_original": false,
+        "loadable_with_current_dsp": true,
+        "warning": "Reconstructed from estimated photo positions; original slider transfer curves are unknown. Hidden values use explicit defaults. First named reference resolves conflicting LEDs for this reconstruction only.",
+        "parameters": {
+          "program": 7,
+          "mode": true,
+          "optimize": false,
+          "modeRate": 2,
+          "decayAmount": 5,
+          "mix": 100,
+          "mono": false,
+          "converter": 0,
+          "diffusion": 0.5,
+          "bass": 1.2147852957651284,
+          "mid": 9.577724377715281,
+          "crossover": 999.9999999999998,
+          "treble": 7469.318177069507,
+          "depth": 40,
+          "predelay": 25
+        }
+      },
+      "implemented_algorithm_index": 7
     },
     {
       "id": "plate-drum-ballad-plate",
@@ -3360,7 +4104,31 @@
           "tag_assignment": "Bright inherited from preceding batch",
           "note": "Visible settings match earlier references within estimation tolerance; hidden numerical values remain unconfirmed."
         }
-      ]
+      ],
+      "visual_reconstruction": {
+        "method": "photo-slot-to-host-range-v1",
+        "verified_original": false,
+        "loadable_with_current_dsp": true,
+        "warning": "Reconstructed from estimated photo positions; original slider transfer curves are unknown. Hidden values use explicit defaults. First named reference resolves conflicting LEDs for this reconstruction only.",
+        "parameters": {
+          "program": 4,
+          "mode": true,
+          "optimize": false,
+          "modeRate": 2,
+          "decayAmount": 7,
+          "mix": 100,
+          "mono": false,
+          "converter": 0,
+          "diffusion": 0.5,
+          "bass": 4.0,
+          "mid": 2.5016775334411463,
+          "crossover": 100.52083333333333,
+          "treble": 7144.751108440518,
+          "depth": 58,
+          "predelay": 83
+        }
+      },
+      "implemented_algorithm_index": 4
     },
     {
       "id": "plate-fat-drum-plate",
@@ -3460,7 +4228,31 @@
           "tag_assignment": "Short inherited from preceding batch",
           "note": "Visible settings match earlier references within estimation tolerance; hidden numerical values remain unconfirmed."
         }
-      ]
+      ],
+      "visual_reconstruction": {
+        "method": "photo-slot-to-host-range-v1",
+        "verified_original": false,
+        "loadable_with_current_dsp": true,
+        "warning": "Reconstructed from estimated photo positions; original slider transfer curves are unknown. Hidden values use explicit defaults. First named reference resolves conflicting LEDs for this reconstruction only.",
+        "parameters": {
+          "program": 4,
+          "mode": true,
+          "optimize": false,
+          "modeRate": 2,
+          "decayAmount": 7,
+          "mix": 100,
+          "mono": false,
+          "converter": 0,
+          "diffusion": 0.5,
+          "bass": 70.0,
+          "mid": 0.6,
+          "crossover": 102.80841481111423,
+          "treble": 10900.0,
+          "depth": 59,
+          "predelay": 77
+        }
+      },
+      "implemented_algorithm_index": 4
     },
     {
       "id": "plate-marv-conga-plate",
@@ -3560,7 +4352,31 @@
           "tag_assignment": "Bright inherited from preceding batch",
           "note": "Visible settings match earlier references within estimation tolerance; hidden numerical values remain unconfirmed."
         }
-      ]
+      ],
+      "visual_reconstruction": {
+        "method": "photo-slot-to-host-range-v1",
+        "verified_original": false,
+        "loadable_with_current_dsp": true,
+        "warning": "Reconstructed from estimated photo positions; original slider transfer curves are unknown. Hidden values use explicit defaults. First named reference resolves conflicting LEDs for this reconstruction only.",
+        "parameters": {
+          "program": 4,
+          "mode": true,
+          "optimize": true,
+          "modeRate": 2,
+          "decayAmount": 7,
+          "mix": 100,
+          "mono": false,
+          "converter": 0,
+          "diffusion": 0.5,
+          "bass": 2.749676064667906,
+          "mid": 3.6453301509351705,
+          "crossover": 2102.9092489254735,
+          "treble": 6506.677532207153,
+          "depth": 16,
+          "predelay": 0
+        }
+      },
+      "implemented_algorithm_index": 4
     },
     {
       "id": "plate-mexicon-snare-plate",
@@ -3669,7 +4485,31 @@
           "tag_assignment": "Bright inherited from preceding batch",
           "note": "Visible settings match earlier references within estimation tolerance; hidden numerical values remain unconfirmed."
         }
-      ]
+      ],
+      "visual_reconstruction": {
+        "method": "photo-slot-to-host-range-v1",
+        "verified_original": false,
+        "loadable_with_current_dsp": true,
+        "warning": "Reconstructed from estimated photo positions; original slider transfer curves are unknown. Hidden values use explicit defaults. First named reference resolves conflicting LEDs for this reconstruction only.",
+        "parameters": {
+          "program": 4,
+          "mode": true,
+          "optimize": true,
+          "modeRate": 2,
+          "decayAmount": 7,
+          "mix": 100,
+          "mono": false,
+          "converter": 0,
+          "diffusion": 0.5,
+          "bass": 0.7053155420730675,
+          "mid": 0.6476374838325619,
+          "crossover": 174.99999999999994,
+          "treble": 10900.0,
+          "depth": 0,
+          "predelay": 0
+        }
+      },
+      "implemented_algorithm_index": 4
     },
     {
       "id": "plate-mid-tempo-snare",
@@ -3769,7 +4609,31 @@
           "tag_assignment": "Bright inherited from preceding batch",
           "note": "Visible settings match earlier references within estimation tolerance; hidden numerical values remain unconfirmed."
         }
-      ]
+      ],
+      "visual_reconstruction": {
+        "method": "photo-slot-to-host-range-v1",
+        "verified_original": false,
+        "loadable_with_current_dsp": true,
+        "warning": "Reconstructed from estimated photo positions; original slider transfer curves are unknown. Hidden values use explicit defaults. First named reference resolves conflicting LEDs for this reconstruction only.",
+        "parameters": {
+          "program": 4,
+          "mode": true,
+          "optimize": false,
+          "modeRate": 2,
+          "decayAmount": 7,
+          "mix": 100,
+          "mono": false,
+          "converter": 0,
+          "diffusion": 0.5,
+          "bass": 0.6081605195624912,
+          "mid": 1.5723651111705306,
+          "crossover": 106.25,
+          "treble": 5883.960299156027,
+          "depth": 24,
+          "predelay": 99
+        }
+      },
+      "implemented_algorithm_index": 4
     },
     {
       "id": "plate-midnight-plate",
@@ -3869,7 +4733,31 @@
           "tag_assignment": "Dark inherited from preceding batch",
           "note": "Visible settings match earlier references within estimation tolerance; hidden values remain unconfirmed."
         }
-      ]
+      ],
+      "visual_reconstruction": {
+        "method": "photo-slot-to-host-range-v1",
+        "verified_original": false,
+        "loadable_with_current_dsp": true,
+        "warning": "Reconstructed from estimated photo positions; original slider transfer curves are unknown. Hidden values use explicit defaults. First named reference resolves conflicting LEDs for this reconstruction only.",
+        "parameters": {
+          "program": 7,
+          "mode": true,
+          "optimize": false,
+          "modeRate": 2,
+          "decayAmount": 5,
+          "mix": 100,
+          "mono": false,
+          "converter": 0,
+          "diffusion": 0.5,
+          "bass": 10.385622208328995,
+          "mid": 1.5723651111705306,
+          "crossover": 1083.302548441103,
+          "treble": 10542.753767708558,
+          "depth": 48,
+          "predelay": 0
+        }
+      },
+      "implemented_algorithm_index": 7
     },
     {
       "id": "plate-mountains-of-needles",
@@ -3977,7 +4865,31 @@
           "tag_assignment": "Bright inherited from preceding batch",
           "note": "Visible settings match earlier references within estimation tolerance; hidden numerical values remain unconfirmed."
         }
-      ]
+      ],
+      "visual_reconstruction": {
+        "method": "photo-slot-to-host-range-v1",
+        "verified_original": false,
+        "loadable_with_current_dsp": true,
+        "warning": "Reconstructed from estimated photo positions; original slider transfer curves are unknown. Hidden values use explicit defaults. First named reference resolves conflicting LEDs for this reconstruction only.",
+        "parameters": {
+          "program": 4,
+          "mode": true,
+          "optimize": false,
+          "modeRate": 2,
+          "decayAmount": 7,
+          "mix": 100,
+          "mono": false,
+          "converter": 0,
+          "diffusion": 0.5,
+          "bass": 2.0721177851354153,
+          "mid": 39.416594359063424,
+          "crossover": 848.8286805200859,
+          "treble": 9144.287006608562,
+          "depth": 71,
+          "predelay": 73
+        }
+      },
+      "implemented_algorithm_index": 4
     },
     {
       "id": "plate-percussion-plate",
@@ -4085,7 +4997,31 @@
           "tag_assignment": "Drums inherited from preceding batch",
           "note": "Visible settings match earlier references within estimation tolerance; hidden numerical values remain unconfirmed."
         }
-      ]
+      ],
+      "visual_reconstruction": {
+        "method": "photo-slot-to-host-range-v1",
+        "verified_original": false,
+        "loadable_with_current_dsp": true,
+        "warning": "Reconstructed from estimated photo positions; original slider transfer curves are unknown. Hidden values use explicit defaults. First named reference resolves conflicting LEDs for this reconstruction only.",
+        "parameters": {
+          "program": 4,
+          "mode": true,
+          "optimize": true,
+          "modeRate": 2,
+          "decayAmount": 7,
+          "mix": 100,
+          "mono": false,
+          "converter": 0,
+          "diffusion": 0.5,
+          "bass": 70.0,
+          "mid": 2.5016775334411463,
+          "crossover": 10900.0,
+          "treble": 100.0,
+          "depth": 0,
+          "predelay": 0
+        }
+      },
+      "implemented_algorithm_index": 4
     },
     {
       "id": "modulacao-drum-crunch-room",
@@ -4191,7 +5127,31 @@
           "tag_assignment": "Drums inherited from preceding batch",
           "note": "Visible settings match earlier references within estimation tolerance; hidden values remain unconfirmed."
         }
-      ]
+      ],
+      "visual_reconstruction": {
+        "method": "photo-slot-to-host-range-v1",
+        "verified_original": false,
+        "loadable_with_current_dsp": true,
+        "warning": "Reconstructed from estimated photo positions; original slider transfer curves are unknown. Hidden values use explicit defaults. First named reference resolves conflicting LEDs for this reconstruction only.",
+        "parameters": {
+          "program": 6,
+          "mode": true,
+          "optimize": false,
+          "modeRate": 2,
+          "decayAmount": 5,
+          "mix": 100,
+          "mono": false,
+          "converter": 0,
+          "diffusion": 0.5,
+          "bass": 0.6,
+          "mid": 0.6,
+          "crossover": 100.0,
+          "treble": 100.0,
+          "depth": 59,
+          "predelay": 41
+        }
+      },
+      "implemented_algorithm_index": 6
     },
     {
       "id": "modulacao-indie-drum-room",
@@ -4298,7 +5258,31 @@
           "tag_assignment": "Bright inherited from preceding batch",
           "note": "Visible settings match earlier references within estimation tolerance; hidden numerical values remain unconfirmed."
         }
-      ]
+      ],
+      "visual_reconstruction": {
+        "method": "photo-slot-to-host-range-v1",
+        "verified_original": false,
+        "loadable_with_current_dsp": true,
+        "warning": "Reconstructed from estimated photo positions; original slider transfer curves are unknown. Hidden values use explicit defaults. First named reference resolves conflicting LEDs for this reconstruction only.",
+        "parameters": {
+          "program": 6,
+          "mode": true,
+          "optimize": true,
+          "modeRate": 2,
+          "decayAmount": 5,
+          "mix": 100,
+          "mono": false,
+          "converter": 0,
+          "diffusion": 0.5,
+          "bass": 0.6180410355916862,
+          "mid": 3.6453301509351705,
+          "crossover": 244.18598917982393,
+          "treble": 10188.505398781976,
+          "depth": 43,
+          "predelay": 0
+        }
+      },
+      "implemented_algorithm_index": 6
     },
     {
       "id": "modulacao-midtempo-snare-room",
@@ -4389,7 +5373,31 @@
           "tag_assignment": "Drums inherited from preceding batch",
           "note": "Visible settings match earlier references within estimation tolerance; hidden numerical values remain unconfirmed."
         }
-      ]
+      ],
+      "visual_reconstruction": {
+        "method": "photo-slot-to-host-range-v1",
+        "verified_original": false,
+        "loadable_with_current_dsp": true,
+        "warning": "Reconstructed from estimated photo positions; original slider transfer curves are unknown. Hidden values use explicit defaults. First named reference resolves conflicting LEDs for this reconstruction only.",
+        "parameters": {
+          "program": 6,
+          "mode": true,
+          "optimize": true,
+          "modeRate": 2,
+          "decayAmount": 5,
+          "mix": 100,
+          "mono": false,
+          "converter": 0,
+          "diffusion": 0.5,
+          "bass": 0.6030905121771549,
+          "mid": 0.9682493735479489,
+          "crossover": 120.88062748589044,
+          "treble": 2402.8730820713804,
+          "depth": 65,
+          "predelay": 0
+        }
+      },
+      "implemented_algorithm_index": 6
     },
     {
       "id": "modulacao-wider-2",
@@ -4491,7 +5499,31 @@
           },
           "note": "Decay Optimization LED appears ON, unlike prior OFF references; preserve per-source states."
         }
-      ]
+      ],
+      "visual_reconstruction": {
+        "method": "photo-slot-to-host-range-v1",
+        "verified_original": false,
+        "loadable_with_current_dsp": true,
+        "warning": "Reconstructed from estimated photo positions; original slider transfer curves are unknown. Hidden values use explicit defaults. First named reference resolves conflicting LEDs for this reconstruction only.",
+        "parameters": {
+          "program": 6,
+          "mode": true,
+          "optimize": false,
+          "modeRate": 2,
+          "decayAmount": 5,
+          "mix": 100,
+          "mono": false,
+          "converter": 0,
+          "diffusion": 0.5,
+          "bass": 0.6,
+          "mid": 0.600007417701494,
+          "crossover": 460.90530347597934,
+          "treble": 692.6024094534611,
+          "depth": 23,
+          "predelay": 0
+        }
+      },
+      "implemented_algorithm_index": 6
     },
     {
       "id": "modulacao-wider-3",
@@ -4632,7 +5664,31 @@
           "note": "Mode Enhancement ON matches original modulacao reference and differs from OFF in Short-04; discrepancy remains unresolved."
         }
       ],
-      "modifier_mapping_status": "conflicting_source_observations"
+      "modifier_mapping_status": "conflicting_source_observations",
+      "visual_reconstruction": {
+        "method": "photo-slot-to-host-range-v1",
+        "verified_original": false,
+        "loadable_with_current_dsp": true,
+        "warning": "Reconstructed from estimated photo positions; original slider transfer curves are unknown. Hidden values use explicit defaults. First named reference resolves conflicting LEDs for this reconstruction only.",
+        "parameters": {
+          "program": 6,
+          "mode": true,
+          "optimize": false,
+          "modeRate": 2,
+          "decayAmount": 5,
+          "mix": 100,
+          "mono": false,
+          "converter": 0,
+          "diffusion": 0.5,
+          "bass": 0.6,
+          "mid": 0.600007417701494,
+          "crossover": 460.90530347597934,
+          "treble": 10542.753767708558,
+          "depth": 23,
+          "predelay": 0
+        }
+      },
+      "implemented_algorithm_index": 6
     },
     {
       "id": "long-chamber-made",
@@ -4721,7 +5777,31 @@
           "image_file": null,
           "note": "Visible settings match earlier references within visual estimation tolerance; hidden numerical values remain unconfirmed."
         }
-      ]
+      ],
+      "visual_reconstruction": {
+        "method": "photo-slot-to-host-range-v1",
+        "verified_original": false,
+        "loadable_with_current_dsp": true,
+        "warning": "Reconstructed from estimated photo positions; original slider transfer curves are unknown. Hidden values use explicit defaults. First named reference resolves conflicting LEDs for this reconstruction only.",
+        "parameters": {
+          "program": 3,
+          "mode": true,
+          "optimize": true,
+          "modeRate": 2,
+          "decayAmount": 5,
+          "mix": 100,
+          "mono": false,
+          "converter": 0,
+          "diffusion": 0.5,
+          "bass": 15.30043134186773,
+          "mid": 1.439003230914045,
+          "crossover": 102.80841481111423,
+          "treble": 9144.287006608562,
+          "depth": 32,
+          "predelay": 25
+        }
+      },
+      "implemented_algorithm_index": 3
     },
     {
       "id": "dark-dark-room",
@@ -4818,7 +5898,31 @@
           "image_file": null,
           "note": "Visible settings match earlier references within estimation tolerance; hidden values remain unconfirmed."
         }
-      ]
+      ],
+      "visual_reconstruction": {
+        "method": "photo-slot-to-host-range-v1",
+        "verified_original": false,
+        "loadable_with_current_dsp": true,
+        "warning": "Reconstructed from estimated photo positions; original slider transfer curves are unknown. Hidden values use explicit defaults. First named reference resolves conflicting LEDs for this reconstruction only.",
+        "parameters": {
+          "program": 6,
+          "mode": true,
+          "optimize": false,
+          "modeRate": 2,
+          "decayAmount": 5,
+          "mix": 100,
+          "mono": false,
+          "converter": 0,
+          "diffusion": 0.5,
+          "bass": 1.3201940426851626,
+          "mid": 0.6081605195624912,
+          "crossover": 106.25,
+          "treble": 1812.0370370370365,
+          "depth": 14,
+          "predelay": 0
+        }
+      },
+      "implemented_algorithm_index": 6
     },
     {
       "id": "dark-hard-chamber",
@@ -4909,7 +6013,31 @@
           "tag_assignment": "Short inherited from preceding batch",
           "note": "Visible settings match earlier references within estimation tolerance; hidden numerical values remain unconfirmed."
         }
-      ]
+      ],
+      "visual_reconstruction": {
+        "method": "photo-slot-to-host-range-v1",
+        "verified_original": false,
+        "loadable_with_current_dsp": true,
+        "warning": "Reconstructed from estimated photo positions; original slider transfer curves are unknown. Hidden values use explicit defaults. First named reference resolves conflicting LEDs for this reconstruction only.",
+        "parameters": {
+          "program": 3,
+          "mode": true,
+          "optimize": false,
+          "modeRate": 2,
+          "decayAmount": 5,
+          "mix": 100,
+          "mono": false,
+          "converter": 0,
+          "diffusion": 0.5,
+          "bass": 0.6,
+          "mid": 0.6255577621877388,
+          "crossover": 102.80841481111423,
+          "treble": 7144.751108440518,
+          "depth": 30,
+          "predelay": 32
+        }
+      },
+      "implemented_algorithm_index": 3
     },
     {
       "id": "dark-unidentified-02-05",
@@ -5158,7 +6286,31 @@
       ],
       "visible_program_leds": [
         4
-      ]
+      ],
+      "visual_reconstruction": {
+        "method": "photo-slot-to-host-range-v1",
+        "verified_original": false,
+        "loadable_with_current_dsp": true,
+        "warning": "Reconstructed from estimated photo positions; original slider transfer curves are unknown. Hidden values use explicit defaults. First named reference resolves conflicting LEDs for this reconstruction only.",
+        "parameters": {
+          "program": 3,
+          "mode": true,
+          "optimize": false,
+          "modeRate": 2,
+          "decayAmount": 5,
+          "mix": 100,
+          "mono": false,
+          "converter": 0,
+          "diffusion": 0.5,
+          "bass": 0.6,
+          "mid": 0.6,
+          "crossover": 100.0,
+          "treble": 100.0,
+          "depth": 0,
+          "predelay": 25
+        }
+      },
+      "implemented_algorithm_index": 3
     },
     {
       "id": "short-unidentified-03-01",
@@ -5593,7 +6745,31 @@
           "tag_assignment": "Drums inherited from preceding batch",
           "note": "Visible settings match earlier references within estimation tolerance; hidden numerical values remain unconfirmed."
         }
-      ]
+      ],
+      "visual_reconstruction": {
+        "method": "photo-slot-to-host-range-v1",
+        "verified_original": false,
+        "loadable_with_current_dsp": true,
+        "warning": "Reconstructed from estimated photo positions; original slider transfer curves are unknown. Hidden values use explicit defaults. First named reference resolves conflicting LEDs for this reconstruction only.",
+        "parameters": {
+          "program": 7,
+          "mode": true,
+          "optimize": false,
+          "modeRate": 2,
+          "decayAmount": 5,
+          "mix": 100,
+          "mono": false,
+          "converter": 0,
+          "diffusion": 0.5,
+          "bass": 0.6,
+          "mid": 0.7665706051873198,
+          "crossover": 420.87939032637547,
+          "treble": 7469.318177069507,
+          "depth": 36,
+          "predelay": 25
+        }
+      },
+      "implemented_algorithm_index": 7
     },
     {
       "id": "short-unidentified-04-03",
@@ -5778,7 +6954,31 @@
           "tag_assignment": "Bright inherited from preceding batch",
           "note": "Visible settings match earlier references within estimation tolerance; hidden numerical values remain unconfirmed."
         }
-      ]
+      ],
+      "visual_reconstruction": {
+        "method": "photo-slot-to-host-range-v1",
+        "verified_original": false,
+        "loadable_with_current_dsp": true,
+        "warning": "Reconstructed from estimated photo positions; original slider transfer curves are unknown. Hidden values use explicit defaults. First named reference resolves conflicting LEDs for this reconstruction only.",
+        "parameters": {
+          "program": 6,
+          "mode": true,
+          "optimize": false,
+          "modeRate": 2,
+          "decayAmount": 5,
+          "mix": 100,
+          "mono": false,
+          "converter": 0,
+          "diffusion": 0.5,
+          "bass": 1.1216790281850229,
+          "mid": 1.0398308772944083,
+          "crossover": 420.87939032637547,
+          "treble": 10900.0,
+          "depth": 24,
+          "predelay": 13
+        }
+      },
+      "implemented_algorithm_index": 6
     },
     {
       "id": "room-mexicon-snare-room",
@@ -5878,7 +7078,31 @@
           "tag_assignment": "Bright inherited from preceding batch",
           "note": "Visible settings match earlier references within estimation tolerance; hidden numerical values remain unconfirmed."
         }
-      ]
+      ],
+      "visual_reconstruction": {
+        "method": "photo-slot-to-host-range-v1",
+        "verified_original": false,
+        "loadable_with_current_dsp": true,
+        "warning": "Reconstructed from estimated photo positions; original slider transfer curves are unknown. Hidden values use explicit defaults. First named reference resolves conflicting LEDs for this reconstruction only.",
+        "parameters": {
+          "program": 6,
+          "mode": true,
+          "optimize": true,
+          "modeRate": 2,
+          "decayAmount": 5,
+          "mix": 100,
+          "mono": false,
+          "converter": 0,
+          "diffusion": 0.5,
+          "bass": 0.6123546657997913,
+          "mid": 0.6017285757570946,
+          "crossover": 112.01549909831866,
+          "treble": 9489.215621485386,
+          "depth": 14,
+          "predelay": 0
+        }
+      },
+      "implemented_algorithm_index": 6
     },
     {
       "id": "room-unidentified-02-03",
@@ -6322,7 +7546,31 @@
           "tag_assignment": "Bright inherited from preceding batch",
           "note": "Visible settings match earlier references within estimation tolerance; hidden numerical values remain unconfirmed."
         }
-      ]
+      ],
+      "visual_reconstruction": {
+        "method": "photo-slot-to-host-range-v1",
+        "verified_original": false,
+        "loadable_with_current_dsp": true,
+        "warning": "Reconstructed from estimated photo positions; original slider transfer curves are unknown. Hidden values use explicit defaults. First named reference resolves conflicting LEDs for this reconstruction only.",
+        "parameters": {
+          "program": 4,
+          "mode": true,
+          "optimize": false,
+          "modeRate": 2,
+          "decayAmount": 7,
+          "mix": 100,
+          "mono": false,
+          "converter": 0,
+          "diffusion": 0.5,
+          "bass": 0.8059681059940914,
+          "mid": 4.385663289515373,
+          "crossover": 244.18598917982393,
+          "treble": 7306.582676169678,
+          "depth": 31,
+          "predelay": 105
+        }
+      },
+      "implemented_algorithm_index": 4
     },
     {
       "id": "medium-acoustic-solo-chamber",
@@ -6411,7 +7659,31 @@
           "image_file": null,
           "note": "Visible settings match earlier references within visual estimation tolerance; hidden numerical values remain unconfirmed."
         }
-      ]
+      ],
+      "visual_reconstruction": {
+        "method": "photo-slot-to-host-range-v1",
+        "verified_original": false,
+        "loadable_with_current_dsp": true,
+        "warning": "Reconstructed from estimated photo positions; original slider transfer curves are unknown. Hidden values use explicit defaults. First named reference resolves conflicting LEDs for this reconstruction only.",
+        "parameters": {
+          "program": 3,
+          "mode": true,
+          "optimize": false,
+          "modeRate": 2,
+          "decayAmount": 5,
+          "mix": 100,
+          "mono": false,
+          "converter": 0,
+          "diffusion": 0.5,
+          "bass": 0.6030905121771549,
+          "mid": 6.276235061752974,
+          "crossover": 106.25,
+          "treble": 7144.751108440518,
+          "depth": 37,
+          "predelay": 25
+        }
+      },
+      "implemented_algorithm_index": 3
     },
     {
       "id": "medium-loose-chamber",
@@ -6491,7 +7763,31 @@
       ],
       "visible_program_leds": [
         4
-      ]
+      ],
+      "visual_reconstruction": {
+        "method": "photo-slot-to-host-range-v1",
+        "verified_original": false,
+        "loadable_with_current_dsp": true,
+        "warning": "Reconstructed from estimated photo positions; original slider transfer curves are unknown. Hidden values use explicit defaults. First named reference resolves conflicting LEDs for this reconstruction only.",
+        "parameters": {
+          "program": 3,
+          "mode": true,
+          "optimize": false,
+          "modeRate": 2,
+          "decayAmount": 5,
+          "mix": 100,
+          "mono": false,
+          "converter": 0,
+          "diffusion": 0.5,
+          "bass": 1.0398308772944083,
+          "mid": 9.577724377715281,
+          "crossover": 126.73994919386459,
+          "treble": 1065.9298463147943,
+          "depth": 28,
+          "predelay": 64
+        }
+      },
+      "implemented_algorithm_index": 3
     },
     {
       "id": "medium-moments-in-lex",
@@ -6571,7 +7867,31 @@
       ],
       "visible_program_leds": [
         7
-      ]
+      ],
+      "visual_reconstruction": {
+        "method": "photo-slot-to-host-range-v1",
+        "verified_original": false,
+        "loadable_with_current_dsp": true,
+        "warning": "Reconstructed from estimated photo positions; original slider transfer curves are unknown. Hidden values use explicit defaults. First named reference resolves conflicting LEDs for this reconstruction only.",
+        "parameters": {
+          "program": 6,
+          "mode": true,
+          "optimize": false,
+          "modeRate": 2,
+          "decayAmount": 5,
+          "mix": 100,
+          "mono": false,
+          "converter": 0,
+          "diffusion": 0.5,
+          "bass": 1.5723651111705306,
+          "mid": 1.439003230914045,
+          "crossover": 189.33550689739582,
+          "treble": 9144.287006608562,
+          "depth": 59,
+          "predelay": 191
+        }
+      },
+      "implemented_algorithm_index": 6
     },
     {
       "id": "medium-unidentified-03-06",

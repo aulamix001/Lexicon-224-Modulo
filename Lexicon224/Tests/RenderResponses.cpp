@@ -19,7 +19,7 @@ int main(int argc, char **argv) {
   std::filesystem::create_directories(dir);
   constexpr int rate = 48000, samples = rate * 12;
   for (int profile = 0; profile < 3; ++profile)
-    for (int program = 0; program < 6; ++program) {
+    for (int program = 0; program < 9; ++program) {
       lex224::Reverb224 engine;
       engine.prepare(rate, program, profile);
       std::ofstream out(dir / ("program" + std::to_string(program + 1) +
@@ -44,5 +44,5 @@ int main(int argc, char **argv) {
       if (!out)
         return 1;
     }
-  std::cout << "18 stereo impulse responses written to " << dir << '\n';
+  std::cout << "27 stereo impulse responses written to " << dir << '\n';
 }

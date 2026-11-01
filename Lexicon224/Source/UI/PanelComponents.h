@@ -70,6 +70,22 @@ public:
                                            key.getY(), juce::Colour(0xff303139),
                                            0, key.getBottom(), false));
     g.fillRect(key);
+    juce::Path bevel;
+    bevel.startNewSubPath(key.getX(), key.getY());
+    bevel.lineTo(key.getRight(), key.getY());
+    bevel.lineTo(key.getRight() - 3, key.getY() + 3);
+    bevel.lineTo(key.getX() + 3, key.getY() + 3);
+    bevel.closeSubPath();
+    g.setColour(juce::Colour(0xff76777c));
+    g.fillPath(bevel);
+    juce::Path foot;
+    foot.startNewSubPath(key.getX(), key.getBottom());
+    foot.lineTo(key.getRight(), key.getBottom());
+    foot.lineTo(key.getRight() - 3, key.getBottom() - 4);
+    foot.lineTo(key.getX() + 3, key.getBottom() - 4);
+    foot.closeSubPath();
+    g.setColour(juce::Colour(0xff15161a));
+    g.fillPath(foot);
     g.setColour(juce::Colour(0xff65666b));
     g.drawLine(key.getX(), key.getY(), key.getRight(), key.getY());
     g.drawLine(key.getX(), key.getY(), key.getX(), key.getBottom());
@@ -99,6 +115,12 @@ public:
                                            juce::Colour(0xff303138), 0, y + 13,
                                            false));
     g.fillRect(cap.reduced(2));
+    g.setGradientFill(juce::ColourGradient(juce::Colour(0x30ffffff), cap.getX(),
+                                           y, juce::Colours::transparentWhite,
+                                           cap.getX() + 10, y, false));
+    g.fillRect(cap.reduced(2));
+    g.setColour(juce::Colour(0xff191b20));
+    g.fillRect(cap.getX() + 2, cap.getBottom() - 3, cap.getWidth() - 3, 2.f);
     g.setColour(juce::Colour(0xff808188));
     g.drawLine(cap.getX() + 1, cap.getY() + 1, cap.getRight() - 1,
                cap.getY() + 1, 1.3f);

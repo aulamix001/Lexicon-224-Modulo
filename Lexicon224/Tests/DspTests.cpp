@@ -35,14 +35,14 @@ int main() {
   try {
     int count = 0;
     for (double sr : {44100., 48000., 88200., 96000.})
-      for (int p = 0; p < 6; ++p)
+      for (int p = 0; p < 9; ++p)
         for (int profile = 0; profile < 3; ++profile) {
           impulse(p, sr, 3, 2, profile);
           ++count;
         }
     require(impulse(0, 48000, 8, 8) > impulse(0, 48000, .6f, .6f) * 10,
             "RT60 controls do not extend tail");
-    for (int p = 0; p < 6; ++p)
+    for (int p = 0; p < 9; ++p)
       for (int profile = 0; profile < 3; ++profile) {
         lex224::Reverb224 e;
         e.prepare(48000, p, profile);

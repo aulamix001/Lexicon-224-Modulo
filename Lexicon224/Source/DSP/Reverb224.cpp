@@ -11,7 +11,7 @@ void Reverb224::prepare(double sampleRate, int program, int converter,
   heldOutput = {};
   previousInput = {};
   converters.prepare(sampleRate);
-  activeProgram = std::clamp(program, 0, 5);
+  activeProgram = std::clamp(program, 0, 8);
   settings = smooth =
       initial ? *initial : programs()[size_t(activeProgram)].defaults;
   hpIn = {};
@@ -29,6 +29,7 @@ void Reverb224::prepare(double sampleRate, int program, int converter,
       tankDiffusion[size_t(ch)][size_t(i)].prepare(sr, ch * 8 + i + 2);
     }
   }
+  chorus.prepare(sr);
   mode.prepare(sr);
   optimization.prepare(sr);
   coefficients();
@@ -72,6 +73,16 @@ std::array<float, 4> Reverb224::processCore(float l, float r) {
   const auto &p = programs()[size_t(activeProgram)];
   if (settings.mono || p.chamber)
     l = r = (l + r) * .5f;
+  if (activeProgram == 8) {
+    auto result =
+        chorus.process(.8f * l + .2f * r, .8f * r + .2f * l, settings.depth,
+                       settings.predelay, settings.modeRate, settings.treble);
+    overloaded = std::max(std::abs(l), std::abs(r)) > 1;
+    if (converterProfile != 2)
+      for (auto &output : result)
+        output = ConverterModel::fixed16(output);
+    return result;
+  }
   double gain = optimization.process(std::max(std::abs(l), std::abs(r)),
                                      settings.optimize, settings.decayAmount,
                                      p.nonUniform);

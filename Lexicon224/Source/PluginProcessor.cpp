@@ -1,5 +1,6 @@
 #include "PluginProcessor.h"
 #include "PluginEditor.h"
+#include "Programs/FactoryPresets.h"
 namespace {
 juce::NormalisableRange<float> skew(float a, float b, float centre) {
   juce::NormalisableRange<float> r(a, b);
@@ -40,7 +41,7 @@ Lexicon224Processor::layout() {
                         "Experimental 20 kHz / 12-bit ranging",
                         "Clean reference"},
       0));
-  add("diffusion", "REVERB DIFFUSION", {0,1,.01f}, .5f, "");
+  add("diffusion", "REVERB DIFFUSION", {0, 1, .01f}, .5f, "");
   juce::StringArray names;
   for (const auto &pr : lex224::programs())
     names.add(pr.name);
@@ -54,7 +55,9 @@ Lexicon224Processor::Lexicon224Processor()
               .withInput("Stereo / Mono", juce::AudioChannelSet::stereo(), true)
               .withOutput("A / C", juce::AudioChannelSet::stereo(), true)
               .withOutput("B / D", juce::AudioChannelSet::stereo(), false)),
-      state(*this, nullptr, "Lexicon224", layout()) {}
+      state(*this, nullptr, "Lexicon224", layout()) {
+  (void)photoPresets();
+}
 bool Lexicon224Processor::isBusesLayoutSupported(const BusesLayout &b) const {
   auto in = b.getMainInputChannelSet();
   auto out = b.getMainOutputChannelSet();
@@ -81,13 +84,13 @@ lex224::Settings Lexicon224Processor::settings() const {
   s.optimize = v("optimize") > .5f;
   s.mono = v("mono") > .5f;
   s.converter = juce::jlimit(0, 2, int(v("converter")));
-  s.program = juce::jlimit(0, 5, int(v("program")));
+  s.program = juce::jlimit(0, 8, int(v("program")));
   return s;
 }
 void Lexicon224Processor::prepareToPlay(double sr, int) {
   sampleRateHz = sr;
   auto s = settings();
-  for (int i = 0; i < 18; ++i) {
+  for (int i = 0; i < 27; ++i) {
     engines[size_t(i)].prepare(sr, i / 3, i % 3, &s);
     engines[size_t(i)].setSettings(s);
   }
@@ -119,14 +122,14 @@ void Lexicon224Processor::processBlock(juce::AudioBuffer<float> &buffer,
     peaks[0] = juce::jmax(peaks[0], std::abs(l));
     peaks[1] = juce::jmax(peaks[1], std::abs(r));
     float total = 0;
-    for (int i = 0; i < 18; ++i) {
+    for (int i = 0; i < 27; ++i) {
       auto &w = weights[size_t(i)];
       w += juce::jlimit(-step, step,
                         (i == s.program * 3 + s.converter ? 1.f : 0.f) - w);
       total += w;
     }
     std::array<float, 4> out{};
-    for (int i = 0; i < 18; ++i)
+    for (int i = 0; i < 27; ++i)
       if (weights[size_t(i)] > 0) {
         auto x = engines[size_t(i)].process(l, r);
         for (size_t c = 0; c < 4; ++c)
@@ -146,15 +149,47 @@ void Lexicon224Processor::processBlock(juce::AudioBuffer<float> &buffer,
     meters[c].store(juce::jmax(peaks[c], meters[c].load() * .85f));
   overflow.store(over);
 }
-int Lexicon224Processor::getCurrentProgram() {
+int Lexicon224Processor::getCurrentAlgorithm() const {
   return int(state.getRawParameterValue("program")->load());
 }
+int Lexicon224Processor::getCurrentProgram() {
+  auto id = state.state.getProperty("factoryPresetId").toString();
+  const auto &rows = photoPresets();
+  for (int i = 0; i < rows.size(); ++i)
+    if (rows[i]["id"].toString() == id)
+      return i;
+  return 0;
+}
 const juce::String Lexicon224Processor::getProgramName(int i) {
-  return juce::isPositiveAndBelow(i, 6) ? lex224::programs()[size_t(i)].name
-                                        : juce::String{};
+  const auto &rows = photoPresets();
+  return juce::isPositiveAndBelow(i, rows.size()) ? rows[i]["name"].toString()
+                                                  : juce::String{};
 }
 void Lexicon224Processor::setCurrentProgram(int i) {
-  if (!juce::isPositiveAndBelow(i, 6))
+  const auto &rows = photoPresets();
+  if (juce::isPositiveAndBelow(i, rows.size()))
+    loadPhotoPreset(rows[i]);
+}
+void Lexicon224Processor::loadPhotoPreset(const juce::var &row) {
+  auto *values = row["visual_reconstruction"]["parameters"].getDynamicObject();
+  if (!values)
+    return;
+  for (const auto &property : values->getProperties())
+    if (auto *parameter = state.getParameter(property.name.toString())) {
+      parameter->beginChangeGesture();
+      parameter->setValueNotifyingHost(
+          parameter->convertTo0to1(float(property.value)));
+      parameter->endChangeGesture();
+    }
+  const auto panel = row["other_visible_buttons"];
+  state.state.setProperty("photoSysNoise", bool(panel["SYS NOISE"]), nullptr);
+  state.state.setProperty("photoRearOuts", bool(panel["REAR OUTS"]), nullptr);
+  state.state.setProperty("photoImmed", bool(panel["IMMED"]), nullptr);
+  state.state.setProperty("factoryPresetId", row["id"], nullptr);
+  ++presetRevision;
+}
+void Lexicon224Processor::selectAlgorithm(int i) {
+  if (!juce::isPositiveAndBelow(i, 9))
     return;
   auto s = lex224::programs()[size_t(i)].defaults;
   auto set = [&](const char *key, float x) {
@@ -163,6 +198,10 @@ void Lexicon224Processor::setCurrentProgram(int i) {
     p->setValueNotifyingHost(p->convertTo0to1(x));
     p->endChangeGesture();
   };
+  state.state.removeProperty("factoryPresetId", nullptr);
+  for (const auto *key : {"photoSysNoise", "photoRearOuts", "photoImmed"})
+    state.state.removeProperty(key, nullptr);
+  set("diffusion", s.diffusion);
   set("bass", s.bass);
   set("mid", s.mid);
   set("crossover", s.crossover);

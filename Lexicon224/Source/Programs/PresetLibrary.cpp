@@ -82,29 +82,15 @@ juce::String PresetLibrary::apply(int index, Lexicon224Processor &processor) {
     ++processor.presetRevision;
     return "Preset de usuario carregado · estado completo";
   }
-  const auto mapping = e.data["confirmed_plugin_parameters"];
-  auto *object = mapping.getDynamicObject();
-  if (!object || !object->hasProperty("program"))
-    return "Algoritmo ausente ou nao identificado · audio mantido";
-  const bool conflict = e.data["modifier_mapping_status"].toString() ==
-                        "conflicting_source_observations";
-  // Intentionally do not call setCurrentProgram: unknown faders must not be
-  // replaced by factory defaults.
-  for (const auto &property : object->getProperties()) {
-    if (conflict && (property.name == juce::Identifier("mode") ||
-                     property.name == juce::Identifier("optimize")))
-      continue;
-    if (auto *parameter =
-            processor.state.getParameter(property.name.toString())) {
-      parameter->beginChangeGesture();
-      parameter->setValueNotifyingHost(
-          parameter->convertTo0to1(float(property.value)));
-      parameter->endChangeGesture();
-    }
-  }
-  ++processor.presetRevision;
-  return conflict ? "Programa aplicado · LEDs divergentes; faders mantidos"
-                  : "Mapeamento parcial · faders e valores ocultos mantidos";
+  const auto reconstruction = e.data["visual_reconstruction"];
+  auto *parameters = reconstruction["parameters"].getDynamicObject();
+  if (!bool(reconstruction["loadable_with_current_dsp"]) || !parameters)
+    return "Algoritmo ausente ou nao identificado - audio mantido";
+  processor.loadPhotoPreset(e.data);
+  return e.data["modifier_mapping_status"].toString() ==
+                 "conflicting_source_observations"
+             ? "Estimativa visual - LEDs da primeira foto; ha divergencias"
+             : "Reconstrucao visual estimada - controles ocultos usam padroes";
 }
 bool PresetLibrary::persist() {
   auto object = std::make_unique<juce::DynamicObject>();

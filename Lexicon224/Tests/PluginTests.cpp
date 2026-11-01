@@ -29,7 +29,7 @@ int main() {
                   std::abs(b.getSample(1, n) + .1f) < 1e-6f,
               "Dry path altered");
     }
-    for (int i = 0; i < 6; ++i) {
+    for (int i = 0; i < 55; ++i) {
       p.setCurrentProgram(i);
       check(p.getCurrentProgram() == i, "Factory recall failed");
     }
@@ -144,22 +144,94 @@ int main() {
       set(p, "bass", 12);
       set(p, "mid", 7);
       library.apply(vocal, p);
-      check(std::abs(p.state.getRawParameterValue("bass")->load() - 12) < .001,
-            "Partial mapping overwrote unknown BASS");
-      check(std::abs(p.state.getRawParameterValue("mid")->load() - 7) < .001,
-            "Partial mapping overwrote unknown MID");
-      check(p.getCurrentProgram() == 1, "Confirmed program not mapped");
-      int unsupported = library.filter("Density Plate", "", false)[0];
-      library.apply(unsupported, p);
-      check(p.getCurrentProgram() == 1,
-            "Unsupported algorithm changed audio program");
+      const auto loadedBass = p.state.getRawParameterValue("bass")->load();
+      const auto loadedMid = p.state.getRawParameterValue("mid")->load();
+      check(std::abs(loadedBass - 12) > .01 && std::abs(loadedMid - 7) > .01,
+            "Visual reconstruction failed to set faders");
+      set(p, "bass", 60);
+      set(p, "modeRate", 16);
+      library.apply(vocal, p);
+      check(std::abs(p.state.getRawParameterValue("bass")->load() -
+                     loadedBass) < .001 &&
+                p.state.getRawParameterValue("modeRate")->load() < 3,
+            "Photo state depends on prior controls");
+      check(p.getCurrentAlgorithm() == 1, "Confirmed algorithm not mapped");
+      int density = library.filter("Density Plate", "", false)[0];
+      library.apply(density, p);
+      check(p.getCurrentAlgorithm() == 7, "Constant Plate is not selectable");
+      int room = library.filter("Live Room", "", false)[0];
+      library.apply(room, p);
+      check(p.getCurrentAlgorithm() == 6, "Room A is not selectable");
+      int chorus = library.filter("Vocal Wide Chorus", "", false)[0];
+      library.apply(chorus, p);
+      check(p.getCurrentAlgorithm() == 8, "Chorus is not selectable");
       int conflict = library.filter("Wider-1", "", false)[0];
       set(p, "optimize", 1);
       library.apply(conflict, p);
-      check(p.state.getRawParameterValue("optimize")->load() > .5f,
-            "Conflicting modifier silently overwritten");
+      check(p.state.getRawParameterValue("optimize")->load() < .5f,
+            "Visual reconstruction did not use documented first reference");
+      int reconstructed = 0, blocked = 0;
+      for (size_t i = 0; i < library.entries().size(); ++i) {
+        const auto &entry = library.entries()[i];
+        const auto model = entry.data["visual_reconstruction"];
+        const auto before = p.state.copyState().toXmlString();
+        library.apply(int(i), p);
+        if (bool(model["loadable_with_current_dsp"])) {
+          ++reconstructed;
+          for (const auto &property :
+               model["parameters"].getDynamicObject()->getProperties()) {
+            auto *value =
+                p.state.getRawParameterValue(property.name.toString());
+            check(value &&
+                      std::abs(value->load() - float(property.value)) < .01f,
+                  "Reconstructed state does not match its mapping");
+          }
+        } else {
+          ++blocked;
+          check(p.state.copyState().toXmlString() == before,
+                "Unavailable algorithm modified the state");
+        }
+      }
+      // Exercise the host API for every named preset, audio output and saved
+      // identity.
+      for (int index = 0; index < 55; ++index) {
+        check(p.getProgramName(index).isNotEmpty(), "Host preset name missing");
+        p.setCurrentProgram(index);
+        check(p.getCurrentProgram() == index, "Host preset identity mismatch");
+        const auto before = p.state.copyState();
+        set(p, "bass", 69);
+        p.setCurrentProgram(index);
+        check(p.state.copyState().isEquivalentTo(before),
+              "Host recall is not deterministic");
+        p.prepareToPlay(48000, 257);
+        double presetEnergy = 0;
+        juce::AudioBuffer<float> audio(4, 257);
+        audio.clear();
+        audio.setSample(0, 0, .3f);
+        for (int block = 0; block < 90; ++block) {
+          if (block > 0)
+            audio.clear();
+          p.processBlock(audio, midi);
+          for (int ch = 0; ch < 4; ++ch)
+            for (int n = 0; n < 257; ++n) {
+              check(std::isfinite(audio.getSample(ch, n)),
+                    "Preset produced invalid audio");
+              presetEnergy += audio.getSample(ch, n) * audio.getSample(ch, n);
+            }
+        }
+        check(presetEnergy > 1e-12, "A named preset produced no wet audio");
+        juce::MemoryBlock snapshot;
+        p.getStateInformation(snapshot);
+        restored.setStateInformation(snapshot.getData(),
+                                     int(snapshot.getSize()));
+        check(restored.getCurrentProgram() == index,
+              "Preset identity did not persist");
+      }
+      check(reconstructed == 55 && blocked == 0,
+            "Unexpected reconstruction counts");
       check(!library.remove(vocal) && !library.rename(vocal, "overwrite"),
             "Factory references must be protected");
+      set(p, "bass", 12);
       check(library.save("Browser Test", p, "Bright"),
             "User preset save failed");
       PresetLibrary restoredLibrary(storage);

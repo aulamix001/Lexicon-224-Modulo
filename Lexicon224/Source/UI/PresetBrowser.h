@@ -24,6 +24,9 @@ private:
   };
   int getNumRows() override { return visible.size(); }
   void paintListBoxItem(int, juce::Graphics &, int, int, bool) override;
+  void listBoxItemClicked(int row, const juce::MouseEvent &) override {
+    returnKeyPressed(row);
+  }
   void listBoxItemDoubleClicked(int row, const juce::MouseEvent &) override {
     returnKeyPressed(row);
   }

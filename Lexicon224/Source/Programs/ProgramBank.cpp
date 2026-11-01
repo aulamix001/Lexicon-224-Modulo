@@ -1,8 +1,8 @@
 #include "ProgramBank.h"
 namespace lex224 {
-const std::array<Program, 6> &programs() {
-  static const std::array<Program, 6> bank = [] {
-    std::array<Program, 6> result{
+const std::array<Program, 9> &programs() {
+  static const std::array<Program, 9> bank = [] {
+    std::array<Program, 9> result{
         {{"Small Concert Hall B",
           {3, 2, 540, 4400, 25, 24, 2, 5, 100, true, true, false, 0},
           24,
@@ -62,23 +62,59 @@ const std::array<Program, 6> &programs() {
           .68f,
           .3f,
           false,
+          false},
+         {"Room A",
+          {1.8f, 1.2f, 540, 6000, 30, 0, 2, 5, 100, true, true, false, 6},
+          0,
+          255,
+          .52f,
+          .44f,
+          .95f,
+          .35f,
+          false,
+          false},
+         {"Constant Plate",
+          {2, 2, 1000, 6500, 35, 0, 2, 7, 100, true, true, false, 7},
+          0,
+          255,
+          .9f,
+          .78f,
+          .45f,
+          0.f,
+          true,
+          false},
+         {"Chorus",
+          {3, 3, 1000, 7000, 25, 20, 2, 5, 100, true, false, false, 8},
+          0,
+          255,
+          1.f,
+          .5f,
+          .5f,
+          0.f,
+          false,
           false}}};
     // Designed program-specific timing sets, in seconds. No claim of recovered
     // ROM taps.
-    const std::array<std::array<double, 8>, 6> delays{
+    const std::array<std::array<double, 8>, 9> delays{
         {{{.0297, .0371, .0411, .0437, .0531, .0593, .0677, .0739}},
          {{.0217, .0269, .0323, .0389, .0451, .0499, .0563, .0617}},
          {{.0473, .0581, .0671, .0797, .0893, .1013, .1139, .1277}},
          {{.0311, .0397, .0479, .0523, .0613, .0719, .0821, .0971}},
          {{.0181, .0229, .0287, .0343, .0409, .0473, .0533, .0581}},
-         {{.0271, .0349, .0401, .0473, .0527, .0611, .0691, .0767}}}};
-    const std::array<std::array<double, 8>, 6> taps{
+         {{.0271, .0349, .0401, .0473, .0527, .0611, .0691, .0767}},
+         {{.0113, .0137, .0179, .0211, .0253, .0299, .0343, .0389}},
+         {{.0241, .0317, .0391, .0463, .0547, .0631, .0719, .0833}},
+         {{.019, .023, .029, .031, .037, .041, .047, .053}}}};
+    const std::array<std::array<double, 8>, 9> taps{
         {{{0, .007, .019, .037, .061, .089, .131, .179}},
          {{0, .0023, .0057, .0091, .0143, .0217, .0301, .0431}},
          {{0, .013, .031, .057, .089, .127, .163, .197}},
          {{0, .021, .043, .065, .087, .109, .131, .150}},
          {{0, .0011, .0029, .0047, .0073, .0113, .0179, .0263}},
-         {{0, .005, .017, .029, .053, .083, .127, .173}}}};
+         {{0, .005, .017, .029, .053, .083, .127, .173}},
+         {{0, .0031, .0067, .0119, .0181, .0263, .0377, .0521}},
+         {{0, .0017, .0043, .0079, .0127, .0193, .0271, .0397}},
+         {{0, .003, .007, .013, .019, .029, .041, .053}}}};
     for (std::size_t i = 0; i < result.size(); ++i) {
       result[i].delayTimes = delays[i];
       result[i].tapTimes = taps[i];

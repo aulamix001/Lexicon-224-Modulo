@@ -1,6 +1,6 @@
 # Visual preset catalog
 
-User-supplied screenshots are grouped by their supplied tag. `catalog.json` is a visual transcription catalog, not an executable preset bank. Entries marked `loadable: false` must not be imported as complete parameter states or silently filled with factory defaults.
+User-supplied screenshots are grouped by their supplied tag. `catalog.json` preserves raw visual evidence separately from estimated playable reconstructions. `loadable: false` describes the unverified original transcription. The explicit `visual_reconstruction` field now defines estimated states for all 55 named references, with documented numeric conversion and hidden-control defaults. These reconstructions are not confirmed original states. Room A, Constant Plate and chorus now have distinct approximate implementations. Historical batch notes below describe the state when the photos were catalogued; references to absent algorithms are superseded by v0.2.0.
 
 ## Vocal — batch 01
 

@@ -144,7 +144,7 @@ PresetBrowser::PresetBrowser(Lexicon224Processor &p) : processor(p) {
   feedback.setFont(juce::Font(10));
   feedback.setColour(juce::Label::textColourId, juce::Colour(0xffc4b98c));
   addAndMakeVisible(feedback);
-  feedback.setText("Fotos: valores numericos dos faders pendentes",
+  feedback.setText("55 presets - reconstrucoes visuais estimadas",
                    juce::dontSendNotification);
   refresh();
 }
@@ -192,7 +192,7 @@ void PresetBrowser::selectedRowsChanged(int row) {
   remove.setEnabled(e.user);
   feedback.setText(
       e.user ? "Enter ou duplo clique: carregar estado completo"
-             : "Enter ou duplo clique: aplicar somente controles confirmados",
+             : "Enter ou duplo clique: carregar reconstrucao visual estimada",
       juce::dontSendNotification);
 }
 void PresetBrowser::returnKeyPressed(int row) {
@@ -305,7 +305,8 @@ PresetWindow::PresetWindow(Lexicon224Processor &p)
   auto *browser = new PresetBrowser(p);
   browser->onClose = [this] { setVisible(false); };
   setContentOwned(browser, true);
-  addToDesktop(juce::ComponentPeer::windowIsTemporary);
+  addToDesktop(juce::ComponentPeer::windowIsTemporary |
+               juce::ComponentPeer::windowHasDropShadow);
 }
 void PresetWindow::showBeside(juce::Component &editor) {
   auto anchor = editor.getScreenBounds();

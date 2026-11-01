@@ -1,11 +1,9 @@
-# Lexicon224 — Windows x64 VST3 preview
+# Lexicon224 v0.2.0 — Windows x64 VST3
 
-Download `Lexicon224-Windows-x64-VST3.zip`, extract it and copy the complete `Lexicon224.vst3` folder into `C:\Program Files\Common Files\VST3`. Rescan plugins in your DAW.
+Download the ZIP, extract and copy the complete Lexicon224.vst3 folder into C:\Program Files\Common Files\VST3. Restart/rescan your DAW. OPEN opens the floating preset organizer.
 
-This preview includes an original six-program algorithmic reverb and the floating preset browser. It is an approximation, not a verified emulation of Lexicon hardware. Screenshot preset mappings are partial: exact fader values are unavailable, conflicting modifiers are preserved as pending, and Room A / Const Plate are not implemented. Complete user preset snapshots can be saved locally. See README.md and docs/DSP-VALIDATION.md for details.
+All 55 named photo presets are now loadable, grouped by 12 tags, and also exposed through the host's program list. Select one to recall a deterministic full state. Search, favourites and user save/rename/delete are included. Room A, Constant Plate and stereo chorus now have distinct designed implementations, in addition to the six original families. Shift+OPEN selects chorus; its panel indication lights all eight program LEDs.
 
-The workflow publishes this asset only after compiling with Visual Studio 2022 and passing the DSP and processor/library tests. DAW compatibility and listening tests are still required.
+**Reconstruction limits:** this is an original approximation, not recovered Lexicon firmware or a verified clone of the photographed plugin. Fader values are inferred from photographed positions using a documented transfer model; hidden controls use explicit defaults. Conflicting modifier LEDs use the first named reference for the reconstructed state. Exact original preset equality and hardware sound equivalence are unverified. SYS NOISE is not modeled; rear outputs are configured through the host. Twelve cropped/unnamed reference images are retained as evidence, not extra presets.
 
-## v0.1.1 panel redesign
-
-506 x 865 proportional panel, eight program buttons on one row, eight hardware-style function buttons, six faders and six lower adjustment buttons. OPEN opens the floating preset browser. The initial program is Large Concert Hall B, with 2.8 sec on the resting display. Embedded DejaVu fonts make rendering consistent across machines; the font license is included in the bundle. Room A / Const Plate and system noise remain unimplemented; their controls do not impersonate another algorithm. The new diffusion parameter controls the input allpass coefficients.
+The workflow compiles with Visual Studio 2022, runs DSP, all-55-preset/state tests and panel/native-window checks, then publishes this asset. A listening session in your particular DAW remains recommended.

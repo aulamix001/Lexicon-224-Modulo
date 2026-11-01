@@ -1,6 +1,7 @@
 #pragma once
 #include "../Programs/ProgramBank.h"
 #include "AllpassChain.h"
+#include "Chorus224.h"
 #include "CombFilter.h"
 #include "ConverterModel.h"
 #include "DecayOptimization.h"
@@ -20,6 +21,7 @@ class Reverb224 {
   ModeEnhancement mode;
   DecayOptimization optimization;
   ConverterModel converters;
+  Chorus224 chorus;
   std::array<double, 2> hpIn{}, hpOut{};
   std::array<float, 4> heldOutput{};
   std::array<float, 2> previousInput{};
