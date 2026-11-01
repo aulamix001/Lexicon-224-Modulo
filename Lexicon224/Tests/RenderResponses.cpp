@@ -4,6 +4,7 @@
 #include <filesystem>
 #include <fstream>
 #include <iostream>
+#include <string>
 // Portable IEEE-float stereo WAV, intended for offline analysis/AB comparisons.
 static void u32(std::ostream &out, uint32_t n) {
   for (int i = 0; i < 4; ++i)
