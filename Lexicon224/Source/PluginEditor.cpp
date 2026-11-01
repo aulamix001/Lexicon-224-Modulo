@@ -342,11 +342,11 @@ void Lexicon224Editor::resized() {
   surface.setBounds(0, 0, 506, 865);
   surface.setTransform(
       juce::AffineTransform::scale(scale).translated(0, 38 * scale));
-  presetTags.setBounds(juce::Rectangle<int>(346, 5, 151, 28)
+  presetTags.setBounds(juce::Rectangle<int>(52, 5, 151, 28)
                            .toFloat()
                            .transformedBy(juce::AffineTransform::scale(scale))
                            .getSmallestIntegerContainer());
-  presetName.setBounds(juce::Rectangle<int>(12, 5, 326, 28)
+  presetName.setBounds(juce::Rectangle<int>(214, 5, 282, 28)
                            .toFloat()
                            .transformedBy(juce::AffineTransform::scale(scale))
                            .getSmallestIntegerContainer());

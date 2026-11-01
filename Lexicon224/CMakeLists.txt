@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.22)
-project(Lexicon224 VERSION 0.2.5 LANGUAGES CXX)
+project(Lexicon224 VERSION 0.2.6 LANGUAGES CXX)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 option(LEXICON_DSP_ONLY "Build portable DSP tests without JUCE" OFF)
