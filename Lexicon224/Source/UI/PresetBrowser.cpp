@@ -22,6 +22,16 @@ void PresetBrowser::Skin::drawButtonBackground(juce::Graphics &g,
   if ((b.getProperties().contains("symbol") ||
        b.getProperties().contains("tab")))
     return;
+  if (b.getProperties().contains("action")) {
+    auto r = b.getLocalBounds().toFloat().reduced(1);
+    g.setGradientFill(juce::ColourGradient(juce::Colour(0xff484844), 0,
+                                           r.getY(), juce::Colour(0xff3f3f3b),
+                                           0, r.getBottom(), false));
+    g.fillRoundedRectangle(r, 1.3f);
+    g.setColour(juce::Colour(0xff63635c));
+    g.drawRoundedRectangle(r, 1.3f, .8f);
+    return;
+  }
   g.setColour(juce::Colour(b.getToggleState() ? 0xff55534a
                            : down             ? 0xff171713
                            : hover            ? 0xff39382f
@@ -35,7 +45,11 @@ void PresetBrowser::Skin::drawButtonText(juce::Graphics &g, juce::TextButton &b,
                                          bool hover, bool down) {
   auto kind = b.getProperties()["symbol"].toString();
   if (kind.isEmpty()) {
-    juce::LookAndFeel_V4::drawButtonText(g, b, hover, down);
+    juce::ignoreUnused(hover, down);
+    g.setFont(juce::Font(12, juce::Font::bold));
+    g.setColour(juce::Colour(0xffe1e1df).withAlpha(b.isEnabled() ? 1.f : .22f));
+    g.drawText(b.getButtonText(), b.getLocalBounds().reduced(3),
+               juce::Justification::centred);
     return;
   }
   g.setColour(juce::Colour(0xffaab6ba).withAlpha(b.isEnabled() ? 1.f : .3f));
@@ -95,6 +109,8 @@ PresetBrowser::PresetBrowser(Lexicon224Processor &p) : processor(p) {
       refresh();
     }
   };
+  for (auto *action : {&save, &rename, &remove})
+    action->getProperties().set("action", true);
   save.onClick = [this] { editName(false); };
   rename.onClick = [this] { editName(true); };
   remove.onClick = [this] {
@@ -171,7 +187,7 @@ void PresetBrowser::refresh() {
   if (row >= 0)
     list.selectRow(row);
   else {
-    title.setText("", juce::dontSendNotification);
+    title.setText("Default", juce::dontSendNotification);
     star.setEnabled(false);
     rename.setEnabled(false);
     remove.setEnabled(false);
