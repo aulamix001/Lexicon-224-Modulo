@@ -8,6 +8,7 @@ struct Settings {
   bool mode = true, optimize = true, mono = false;
   int program = 0;
   int converter = 0;
+  float diffusion = .5f;
 };
 struct Program {
   const char *name;

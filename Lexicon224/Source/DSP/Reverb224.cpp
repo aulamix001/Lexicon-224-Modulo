@@ -86,8 +86,10 @@ std::array<float, 4> Reverb224::processCore(float l, float r) {
     hpOut[ch] = h;
     x = delays[ch].process(float(h));
     float e = early[ch].process(x, smooth.depth, int(ch), p);
-    float d =
-        diffusion[ch].process(x * .6f + e * .4f, p.diffusion + modulation);
+    float d = diffusion[ch].process(
+        x * .6f + e * .4f,
+        std::clamp(p.diffusion + (settings.diffusion - .5f) * .2f + modulation,
+                   .1, .85));
     float sum = 0, alternate = 0;
     std::array<float, 8> branch{}, feedback{};
     for (size_t i = 0; i < 8; ++i) {

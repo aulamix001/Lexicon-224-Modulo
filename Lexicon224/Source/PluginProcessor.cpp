@@ -18,7 +18,7 @@ Lexicon224Processor::layout() {
         juce::AudioParameterFloatAttributes().withLabel(unit)));
   };
   add("bass", "BASS", skew(.6f, 70, 4), 3, "sec");
-  add("mid", "MID", skew(.6f, 70, 4), 2, "sec");
+  add("mid", "MID", skew(.6f, 70, 4), 2.6f, "sec");
   // Preserve the manual's 540 Hz preset; coarse values remain available via
   // keyboard.
   add("crossover", "CROSSOVER", skew(100, 10900, 1000), 540, "Hz");
@@ -40,11 +40,12 @@ Lexicon224Processor::layout() {
                         "Experimental 20 kHz / 12-bit ranging",
                         "Clean reference"},
       0));
+  add("diffusion", "REVERB DIFFUSION", {0,1,.01f}, .5f, "");
   juce::StringArray names;
   for (const auto &pr : lex224::programs())
     names.add(pr.name);
   p.add(std::make_unique<juce::AudioParameterChoice>(
-      juce::ParameterID{"program", 1}, "PROGRAM", names, 0));
+      juce::ParameterID{"program", 1}, "PROGRAM", names, 2));
   return p;
 }
 Lexicon224Processor::Lexicon224Processor()
@@ -66,6 +67,7 @@ bool Lexicon224Processor::isBusesLayoutSupported(const BusesLayout &b) const {
 lex224::Settings Lexicon224Processor::settings() const {
   lex224::Settings s;
   auto v = [&](const char *k) { return state.getRawParameterValue(k)->load(); };
+  s.diffusion = v("diffusion");
   s.bass = v("bass");
   s.mid = v("mid");
   s.crossover = v("crossover");

@@ -10,39 +10,26 @@ public:
   void paint(juce::Graphics &) override;
   void resized() override;
   void visibilityChanged() override {
-    if (!isShowing() && presetWindow)
-      presetWindow->setVisible(false);
+    if (!isShowing() && window)
+      window->setVisible(false);
   }
 
 private:
   void timerCallback() override;
-  void selectRegister(int);
-  void armPickup();
+  void set(const char *, float);
+  void adjust(const char *, float);
   Lexicon224Processor &processor;
   PanelLook look;
   NumerDisplay display;
   HeadroomMeter meter;
-  SliderPanel panel;
-  ProgramButtons programs;
-  ModeButtons modes;
-  RegisterButtons registers;
-  juce::TextButton presetButton{"PRESETS"};
-  std::unique_ptr<PresetWindow> presetWindow;
-  juce::Slider mix, rate, amount;
-  juce::ComboBox converter;
-  std::unique_ptr<juce::AudioProcessorValueTreeState::ComboBoxAttachment>
-      converterAttachment;
-  juce::ToggleButton mono{"MONO BRIDGE"};
-  std::unique_ptr<juce::AudioProcessorValueTreeState::SliderAttachment>
-      mixAttachment, rateAttachment, amountAttachment;
-  std::unique_ptr<juce::AudioProcessorValueTreeState::ButtonAttachment>
-      monoAttachment;
-  std::array<bool, 6> active{{true, true, true, true, true, true}}, dragging{};
-  std::array<double, 6> previous{};
-  unsigned revision = 0;
-  bool storing = false, shift = false, call = true;
-  int bank = 0, held = -1;
-  juce::String status = "CALL · factory presets";
+  std::array<juce::TextButton, 8> programs, functions;
+  std::array<juce::TextButton, 6> lower;
+  std::array<juce::Slider, 6> sliders;
+  juce::TextButton open;
+  std::unique_ptr<PresetWindow> window;
+  juce::Component surface;
+  int held = -1;
+  bool immed = false;
   static constexpr const char *ids[]{"bass",   "mid",   "crossover",
                                      "treble", "depth", "predelay"};
   JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(Lexicon224Editor)

@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.22)
-project(Lexicon224 VERSION 0.1.0 LANGUAGES CXX)
+project(Lexicon224 VERSION 0.1.1 LANGUAGES CXX)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 option(LEXICON_DSP_ONLY "Build portable DSP tests without JUCE" OFF)
@@ -29,7 +29,7 @@ juce_add_plugin(Lexicon224 COMPANY_NAME "AulaMix" BUNDLE_ID "com.aulamix.reverb2
  PLUGIN_MANUFACTURER_CODE AuMx PLUGIN_CODE L224 FORMATS VST3 PRODUCT_NAME "Lexicon224"
  EDITOR_WANTS_KEYBOARD_FOCUS TRUE IS_SYNTH FALSE NEEDS_MIDI_INPUT FALSE NEEDS_MIDI_OUTPUT FALSE IS_MIDI_EFFECT FALSE COPY_PLUGIN_AFTER_BUILD FALSE)
 juce_generate_juce_header(Lexicon224)
-juce_add_binary_data(PresetData NAMESPACE PresetData HEADER_NAME PresetData.h SOURCES ../presets/catalog.json)
+juce_add_binary_data(PresetData NAMESPACE PresetData HEADER_NAME PresetData.h SOURCES ../presets/catalog.json Assets/DejaVuSansCondensed.ttf Assets/DejaVuSansCondensed-Bold.ttf Assets/DejaVuSerif-Italic.ttf)
 target_link_libraries(Lexicon224 PRIVATE PresetData)
 target_sources(Lexicon224 PRIVATE Source/PluginProcessor.cpp Source/PluginEditor.cpp Source/Programs/RegisterStore.cpp Source/Programs/PresetLibrary.cpp Source/UI/PresetBrowser.cpp)
 target_compile_definitions(Lexicon224 PUBLIC JUCE_WEB_BROWSER=0 JUCE_USE_CURL=0 JUCE_VST3_CAN_REPLACE_VST2=0)
@@ -42,4 +42,9 @@ if(BUILD_TESTING)
  add_executable(render_browser Tests/RenderBrowser.cpp)
  target_link_libraries(render_browser PRIVATE Lexicon224)
  target_include_directories(render_browser PRIVATE Source $<TARGET_PROPERTY:Lexicon224,INCLUDE_DIRECTORIES>)
+ add_test(NAME panel_layout COMMAND render_browser ${CMAKE_CURRENT_BINARY_DIR}/panel-layout.png)
 endif()
+
+add_custom_command(TARGET Lexicon224_VST3 POST_BUILD
+ COMMAND ${CMAKE_COMMAND} -E make_directory "$<TARGET_FILE_DIR:Lexicon224_VST3>/../Resources"
+ COMMAND ${CMAKE_COMMAND} -E copy_if_different "${CMAKE_CURRENT_SOURCE_DIR}/Assets/FONT-LICENSE.txt" "$<TARGET_FILE_DIR:Lexicon224_VST3>/../Resources/FONT-LICENSE.txt")
