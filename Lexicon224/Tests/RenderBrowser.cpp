@@ -71,7 +71,8 @@ int main(int argc, char **argv) {
     if (auto *w = dynamic_cast<PresetWindow *>(
             juce::Desktop::getInstance().getComponent(i)))
       floating = w;
-  if (!floating || !floating->isVisible() || !floating->getPeer())
+  if (!floating || !floating->isVisible() || !floating->getPeer() ||
+      !floating->isAlwaysOnTop())
     return 4;
   opener->onClick();
   if (floating->isVisible())

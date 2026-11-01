@@ -379,6 +379,7 @@ PresetWindow::PresetWindow(Lexicon224Processor &p)
   setContentOwned(browser, true);
   addToDesktop(juce::ComponentPeer::windowIsTemporary |
                juce::ComponentPeer::windowHasDropShadow);
+  setAlwaysOnTop(true);
 }
 void PresetWindow::showBeside(juce::Component &editor) {
   auto anchor = editor.getScreenBounds();
