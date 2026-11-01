@@ -43,8 +43,9 @@ public:
       for (int voice = 0; voice < 3; ++voice) {
         double sweep =
             std::sin(6.283185307179586 * (phase + voice / 3. + ch * .25));
-        double samples = sr * (.012 + delay * .0006 + .00009 * depth * sweep +
-                               voice * .0041);
+        double samples =
+            sr * (.012 + delay * .0006 + (.00045 + .00009 * depth) * sweep +
+                  voice * .0041);
         double p = double(write) - samples;
         while (p < 0)
           p += line.size();

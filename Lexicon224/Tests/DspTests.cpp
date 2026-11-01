@@ -91,6 +91,16 @@ int main() {
         require(y[0] == 0 && y[1] == 0, "Unexcited engine produced noise");
       }
     }
+    lex224::Chorus224 stereoChorus;
+    stereoChorus.prepare(48000);
+    double motion = 0;
+    for (int n = 0; n < 96000; ++n) {
+      float input = .3f * float(std::sin(n * 6.283185307179586 * 1000 / 48000));
+      auto out = stereoChorus.process(input, input, 0, 20, 2, 6000);
+      if (n > 24000)
+        motion += (out[0] - out[1]) * (out[0] - out[1]);
+    }
+    require(motion > .01, "Chorus at minimum depth lost stereo modulation");
     lex224::Reverb224 chamber;
     chamber.prepare(48000, 3);
     for (int i = 0; i < 24000; ++i) {
