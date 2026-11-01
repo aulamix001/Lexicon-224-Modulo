@@ -24,7 +24,11 @@ jobs:
           if (Test-Path windows-build.log) {
             '## Windows compiler diagnostics' | Out-File -Append $env:GITHUB_STEP_SUMMARY
             '```text' | Out-File -Append $env:GITHUB_STEP_SUMMARY
-            Get-Content windows-build.log | Select-String -Pattern 'error C|fatal error|error LNK|error MSB|FAILED' | Select-Object -First 60 | ForEach-Object { $_.Line } | Out-File -Append $env:GITHUB_STEP_SUMMARY
+            Get-Content windows-build.log | Select-String -Pattern 'error C|fatal error|error LNK|error MSB|FAILED' | Select-Object -First 60 | ForEach-Object {
+              $_.Line | Out-File -Append $env:GITHUB_STEP_SUMMARY
+              $message = $_.Line.Replace("%", "%25").Replace("`r", "%0D").Replace("`n", "%0A")
+              Write-Output "::error::$message"
+            }
             '```' | Out-File -Append $env:GITHUB_STEP_SUMMARY
           }
       - name: Test
