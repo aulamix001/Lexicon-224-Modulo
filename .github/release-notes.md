@@ -1,15 +1,11 @@
-# Lexicon224 v0.2.3 — Windows x64 VST3
+# Lexicon224 v0.2.4 — Windows x64 VST3
 
-Download the ZIP, extract and copy the complete Lexicon224.vst3 folder into C:\Program Files\Common Files\VST3. Restart/rescan your DAW. OPEN opens the floating preset organizer.
+Extract the ZIP and replace the complete Lexicon224.vst3 folder in C:\Program Files\Common Files\VST3. Restart/rescan your DAW. OPEN opens the independent floating tag/preset organizer beside the plugin.
 
-All 55 named photo presets are now loadable, grouped by 12 tags, and also exposed through the host's program list. Select one to recall a deterministic full state. Search, favourites and user save/rename/delete are included. Room A, Constant Plate and stereo chorus now have distinct designed implementations, in addition to the six original families. Shift+OPEN selects chorus; its panel indication lights all eight program LEDs.
+All 55 existing complete preset states and their 12 reference categories are preserved. The mapping completion pass creates name-based estimates only when a state is absent/incomplete and retains existing values. This bank needed zero replacements: all 55 already load. The ZIP includes preset-readiness-audit.json and preset-mapping-completion.json.
 
-**Reconstruction limits:** this is an original approximation, not recovered Lexicon firmware or a verified clone of the photographed plugin. Fader values are inferred from photographed positions using a documented transfer model; hidden controls use explicit defaults. Conflicting modifier LEDs use the first named reference for the reconstructed state. Exact original preset equality and hardware sound equivalence are unverified. SYS NOISE is not modeled; rear outputs are configured through the host. Twelve cropped/unnamed reference images are retained as evidence, not extra presets.
+The floating organizer uses the reference palette, type, structure and category order with frontal skeuomorphic 2.5D relief: shallow linear gradients, soft outer/contact shadows, inset edges and 1 px highlights. The panel retains beveled keys/faders, metal rails and red acrylic display glass. All drawing is 2D; no perspective transforms are used.
 
-The workflow compiles with Visual Studio 2022, runs DSP, all-55-preset/state tests and panel/native-window checks, then publishes this asset. A listening session in your particular DAW remains recommended.
+Search, tag filtering, favourites, and user save/rename/delete remain available. The Windows workflow runs the DSP, all-55-preset/state/tag tests and panel/native-floating-window checks before publication.
 
-The final chorus check verifies that minimum DEPTH retains a subtle stereo modulation floor, so the photographed low-depth chorus presets remain modulated.
-
-Preset categories now match the supplied tag screenshots: 18 missing memberships restored across Plate, Long, Dark, Short, Room, Drums and Medium. All 12 visible tags are retained; no Keys category is added. Bright is confirmed from both screenshot segments.
-
-Panel artwork refined from the supplied close-ups: rounded key and fader edges, soft cast shadows, metal side rails and connector bevels, and textured red display glass with slanted LED numerals. Procedural artwork remains an approximation of the photographed design.
+**Accuracy:** values inferred from photos and any future name-derived designs are estimates, not recovered original presets. Exact visual, preset and hardware sound equivalence is unverified. SYS NOISE audio is not modeled; rear buses are configured through the host. The artwork is a procedural approximation of the supplied references.

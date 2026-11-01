@@ -4,13 +4,19 @@ C++17 / JUCE 7.0.12 algorithmic effect with a hardware-style 506×865 scalable e
 
 ## Download and install
 
-Download `Lexicon224-Windows-x64-VST3.zip` from the repository's **v0.2.3** release. Extract and copy the complete `Lexicon224.vst3` folder to `C:\Program Files\Common Files\VST3`. Replace an older version rather than keeping duplicate copies in different plugin folders. Restart the DAW and rescan VST3 plugins. The binary uses the Microsoft Visual C++ x64 runtime. Source archives are not installable plugins.
+Download `Lexicon224-Windows-x64-VST3.zip` from the repository's **v0.2.4** release. Extract and copy the complete `Lexicon224.vst3` folder to `C:\Program Files\Common Files\VST3`. Replace an older version rather than keeping duplicate copies in different plugin folders. Restart the DAW and rescan VST3 plugins. The binary uses the Microsoft Visual C++ x64 runtime. Source archives are not installable plugins.
 
 ## The 55 presets
 
 All **55 named photo presets** are now executable, deterministic reconstructed states, available both through the host's program list and the **OPEN** floating organizer. They are classified into **12 tags**. Repeated photographs across categories are references to the same preset, not duplicates. Twelve cropped/unnamed photos remain supporting evidence and are not additional presets.
 
 Click a name in the organizer or select a program in the host to load it. Search filters names/tags; a tag filters the list; the favourites star filters/toggles favourites. SAVE captures an exact full state of this plugin as a user preset; RENAME/DELETE apply to user presets only. User presets/favourites persist in `AulaMix/Lexicon224/presets.json` under JUCE's user application-data directory. The floating window is draggable, opens beside the plugin within screen bounds and hides when the editor closes. Artist metadata was not supplied, so ARTIST has an explicit empty state. Display labels Best Of and Modulation map to the original catalog tags Best off and modulacao.
+
+### Mapping completion and appearance in v0.2.4
+
+The 55 existing complete maps are preserved. No current named preset is missing a state. `python scripts/complete-preset-mappings.py` fills only absent/incomplete states with explicitly labeled name-based sound-design estimates, retaining any existing values. Names can suggest a room/plate/hall/chorus family and short/long/dark character; they cannot recover original settings. The completion report is included in the download ZIP. The Windows workflow runs completion before embedding the bank.
+
+The floating organizer retains the reference palette, typography, 12-category order and layout. Shallow linear gradients, soft contact shadows, inset edges and 1 px highlights give the buttons and panels a frontal 2.5D relief. All rendering uses 2D JUCE drawing; no perspective or 3D transforms are applied. The OPEN window opens beside the plugin, with search, tag filtering and favourites.
 
 ### Reconstruction accuracy
 

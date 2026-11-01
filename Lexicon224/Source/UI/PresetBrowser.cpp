@@ -22,24 +22,37 @@ void PresetBrowser::Skin::drawButtonBackground(juce::Graphics &g,
   if ((b.getProperties().contains("symbol") ||
        b.getProperties().contains("tab")))
     return;
-  if (b.getProperties().contains("action")) {
-    auto r = b.getLocalBounds().toFloat().reduced(1);
-    g.setGradientFill(juce::ColourGradient(juce::Colour(0xff484844), 0,
-                                           r.getY(), juce::Colour(0xff3f3f3b),
-                                           0, r.getBottom(), false));
-    g.fillRoundedRectangle(r, 1.3f);
-    g.setColour(juce::Colour(0xff63635c));
-    g.drawRoundedRectangle(r, 1.3f, .8f);
-    return;
+  const bool action = b.getProperties().contains("action");
+  const bool selected = b.getToggleState();
+  auto r = b.getLocalBounds().toFloat().reduced(1.5f);
+  juce::Path outline;
+  outline.addRoundedRectangle(r, 1.5f);
+  // Frontal 2.5D relief: linear light, a 1 px lip and soft contact shadow.
+  juce::DropShadow(juce::Colour(0x55000000), 2, {0, 1}).drawForPath(g, outline);
+  auto top = juce::Colour(action     ? 0xff4c4c47
+                          : selected ? 0xff515047
+                                     : 0xff292820);
+  auto bottom = juce::Colour(action     ? 0xff3d3d39
+                             : selected ? 0xff414037
+                                        : 0xff201f1a);
+  if (down) {
+    top = top.darker(.22f);
+    bottom = bottom.darker(.12f);
+  } else if (hover && b.isEnabled()) {
+    top = top.brighter(.08f);
   }
-  g.setColour(juce::Colour(b.getToggleState() ? 0xff55534a
-                           : down             ? 0xff171713
-                           : hover            ? 0xff39382f
-                                              : 0xff24231e)
-                  .withAlpha(b.isEnabled() ? 1.f : .4f));
-  g.fillRoundedRectangle(b.getLocalBounds().toFloat().reduced(1), 2);
-  g.setColour(juce::Colour(0xff151510));
-  g.drawRoundedRectangle(b.getLocalBounds().toFloat().reduced(1), 2, 1);
+  g.setGradientFill(
+      juce::ColourGradient(top, 0, r.getY(), bottom, 0, r.getBottom(), false));
+  g.fillPath(outline);
+  g.setColour(juce::Colour(action || selected ? 0xff66655c : 0xff171611));
+  g.drawRoundedRectangle(r, 1.5f, 1);
+  g.setColour(juce::Colours::white.withAlpha(down                 ? .035f
+                                             : action || selected ? .13f
+                                                                  : .055f));
+  g.drawLine(r.getX() + 1, r.getY() + 1, r.getRight() - 1, r.getY() + 1, 1);
+  g.setColour(juce::Colours::black.withAlpha(down ? .35f : .22f));
+  g.drawLine(r.getX() + 1, r.getBottom() - 1, r.getRight() - 1,
+             r.getBottom() - 1, 1);
 }
 void PresetBrowser::Skin::drawButtonText(juce::Graphics &g, juce::TextButton &b,
                                          bool hover, bool down) {
@@ -47,7 +60,10 @@ void PresetBrowser::Skin::drawButtonText(juce::Graphics &g, juce::TextButton &b,
   if (kind.isEmpty()) {
     juce::ignoreUnused(hover, down);
     g.setFont(juce::Font(12, juce::Font::bold));
-    g.setColour(juce::Colour(0xffe1e1df).withAlpha(b.isEnabled() ? 1.f : .22f));
+    const bool inactiveTab =
+        b.getProperties().contains("tab") && !b.getToggleState();
+    g.setColour(juce::Colour(inactiveTab ? 0xff9b9e9f : 0xffe1e1df)
+                    .withAlpha(b.isEnabled() ? 1.f : .22f));
     g.drawText(b.getButtonText(), b.getLocalBounds().reduced(3),
                juce::Justification::centred);
     return;
@@ -170,6 +186,8 @@ int PresetBrowser::current() const {
   return juce::isPositiveAndBelow(row, visible.size()) ? visible[row] : -1;
 }
 void PresetBrowser::refresh() {
+  for (int i = 0; i < 3; ++i)
+    tabs[size_t(i)].setToggleState(i == tab, juce::dontSendNotification);
   auto selected = current();
   juce::String id =
       juce::isPositiveAndBelow(selected, int(library.entries().size()))
@@ -263,16 +281,33 @@ void PresetBrowser::editName(bool isRename) {
       true);
 }
 void PresetBrowser::paint(juce::Graphics &g) {
-  g.fillAll(juce::Colour(0xff302e27));
-  g.setColour(juce::Colour(0xff48463c));
-  g.fillRoundedRectangle(getLocalBounds().toFloat().reduced(1), 3);
+  g.fillAll(juce::Colour(0xff24231e));
+  auto frame = getLocalBounds().toFloat().reduced(1);
+  g.setGradientFill(juce::ColourGradient(juce::Colour(0xff49473d), 0, 0,
+                                         juce::Colour(0xff3e3c33), 0,
+                                         float(getHeight()), false));
+  g.fillRoundedRectangle(frame, 3);
+  g.setColour(juce::Colour(0xff666357));
+  g.drawRoundedRectangle(frame.reduced(.5f), 3, 1);
+  g.setColour(juce::Colour(0xff1a1915));
+  g.drawRoundedRectangle(frame, 3, 1);
   g.setColour(juce::Colour(0xff302e27));
-  g.fillRect(4, 78, getWidth() - 8, getHeight() - 82);
+  g.fillRoundedRectangle(4, 78, float(getWidth() - 8), float(getHeight() - 82),
+                         2);
+  g.setColour(juce::Colour(0xff171611));
+  g.drawRoundedRectangle(4, 38, float(getWidth() - 10), 38, 2, 1);
+  g.setColour(juce::Colour(0x18ffffff));
+  g.drawLine(6, 76, float(getWidth() - 8), 76, 1);
   g.setColour(juce::Colour(0xffdddddd));
   g.setFont(juce::Font(12, juce::Font::bold));
   g.drawText("LEXICON 224 PRESETS", 20, 4, getWidth() - 40, 29,
              juce::Justification::centred);
-  g.setFont(11);
+  g.setFont(juce::Font(11, juce::Font::bold));
+  juce::Path triangle;
+  triangle.addTriangle(51, 105, 57, 99, 57, 105);
+  g.setColour(juce::Colour(0xff77796e));
+  g.fillPath(triangle);
+  g.setColour(juce::Colour(0xffdddddd));
   g.drawText("TAGS", 14, 88, 70, 21, juce::Justification::centredLeft);
   g.drawText("FAVORITES", getWidth() - 128, 88, 87, 21,
              juce::Justification::centredRight);

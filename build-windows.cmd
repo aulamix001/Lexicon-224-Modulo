@@ -19,7 +19,7 @@ if errorlevel 1 goto failed
 ctest --test-dir build-windows -C Release --output-on-failure
 if errorlevel 1 goto failed
 if not exist dist mkdir dist
-powershell -NoProfile -Command "Compress-Archive -Path 'build-windows/Lexicon224_artefacts/Release/VST3/Lexicon224.vst3','docs/preset-readiness-audit.json' -DestinationPath 'dist/Lexicon224-Windows-x64-VST3.zip' -Force"
+powershell -NoProfile -Command "Compress-Archive -Path 'build-windows/Lexicon224_artefacts/Release/VST3/Lexicon224.vst3','docs/preset-readiness-audit.json','docs/preset-mapping-completion.json' -DestinationPath 'dist/Lexicon224-Windows-x64-VST3.zip' -Force"
 if errorlevel 1 goto failed
 echo.
 echo VST3 gerado em build-windows\Lexicon224_artefacts\Release\VST3\Lexicon224.vst3
