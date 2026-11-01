@@ -187,7 +187,8 @@ void PresetBrowser::refresh() {
   if (row >= 0)
     list.selectRow(row);
   else {
-    title.setText("Default", juce::dontSendNotification);
+    if (title.getText().isEmpty())
+      title.setText("Default", juce::dontSendNotification);
     star.setEnabled(false);
     rename.setEnabled(false);
     remove.setEnabled(false);
