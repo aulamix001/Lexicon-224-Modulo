@@ -1,0 +1,106 @@
+{
+  "source": "User screenshots in current conversation; Bright combined from both segments. The final reference contains 12 tags; Keys is excluded as instructed by the user.",
+  "named_presets": 55,
+  "tags": {
+    "Vocal": {
+      "reference_complete": true,
+      "visible_count": 9,
+      "catalog_count": 9,
+      "missing_tag_assignments": [],
+      "extra_tag_assignments": [],
+      "missing_presets": []
+    },
+    "Best off": {
+      "reference_complete": true,
+      "visible_count": 13,
+      "catalog_count": 13,
+      "missing_tag_assignments": [],
+      "extra_tag_assignments": [],
+      "missing_presets": []
+    },
+    "Hall": {
+      "reference_complete": true,
+      "visible_count": 15,
+      "catalog_count": 15,
+      "missing_tag_assignments": [],
+      "extra_tag_assignments": [],
+      "missing_presets": []
+    },
+    "Plate": {
+      "reference_complete": true,
+      "visible_count": 20,
+      "catalog_count": 20,
+      "missing_tag_assignments": [],
+      "extra_tag_assignments": [],
+      "missing_presets": []
+    },
+    "modulacao": {
+      "reference_complete": true,
+      "visible_count": 11,
+      "catalog_count": 11,
+      "missing_tag_assignments": [],
+      "extra_tag_assignments": [],
+      "missing_presets": []
+    },
+    "Long": {
+      "reference_complete": true,
+      "visible_count": 14,
+      "catalog_count": 14,
+      "missing_tag_assignments": [],
+      "extra_tag_assignments": [],
+      "missing_presets": []
+    },
+    "Dark": {
+      "reference_complete": true,
+      "visible_count": 16,
+      "catalog_count": 16,
+      "missing_tag_assignments": [],
+      "extra_tag_assignments": [],
+      "missing_presets": []
+    },
+    "Short": {
+      "reference_complete": true,
+      "visible_count": 20,
+      "catalog_count": 20,
+      "missing_tag_assignments": [],
+      "extra_tag_assignments": [],
+      "missing_presets": []
+    },
+    "Room": {
+      "reference_complete": true,
+      "visible_count": 11,
+      "catalog_count": 11,
+      "missing_tag_assignments": [],
+      "extra_tag_assignments": [],
+      "missing_presets": []
+    },
+    "Drums": {
+      "reference_complete": true,
+      "visible_count": 15,
+      "catalog_count": 15,
+      "missing_tag_assignments": [],
+      "extra_tag_assignments": [],
+      "missing_presets": []
+    },
+    "Medium": {
+      "reference_complete": true,
+      "visible_count": 20,
+      "catalog_count": 20,
+      "missing_tag_assignments": [],
+      "extra_tag_assignments": [],
+      "missing_presets": []
+    },
+    "Bright": {
+      "reference_complete": true,
+      "visible_count": 26,
+      "catalog_count": 26,
+      "missing_tag_assignments": [],
+      "extra_tag_assignments": [],
+      "missing_presets": []
+    }
+  },
+  "missing_presets": [],
+  "presets_not_visible_in_any_supplied_tag_list": [],
+  "total_missing_tag_assignments": 0,
+  "total_extra_tag_assignments": 0
+}

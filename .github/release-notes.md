@@ -1,4 +1,4 @@
-# Lexicon224 v0.2.1 — Windows x64 VST3
+# Lexicon224 v0.2.2 — Windows x64 VST3
 
 Download the ZIP, extract and copy the complete Lexicon224.vst3 folder into C:\Program Files\Common Files\VST3. Restart/rescan your DAW. OPEN opens the floating preset organizer.
 
@@ -9,3 +9,5 @@ All 55 named photo presets are now loadable, grouped by 12 tags, and also expose
 The workflow compiles with Visual Studio 2022, runs DSP, all-55-preset/state tests and panel/native-window checks, then publishes this asset. A listening session in your particular DAW remains recommended.
 
 The final chorus check verifies that minimum DEPTH retains a subtle stereo modulation floor, so the photographed low-depth chorus presets remain modulated.
+
+Preset categories now match the supplied tag screenshots: 18 missing memberships restored across Plate, Long, Dark, Short, Room, Drums and Medium. All 12 visible tags are retained; no Keys category is added. Bright is confirmed from both screenshot segments.

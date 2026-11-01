@@ -385,7 +385,8 @@
       "tags": [
         "Vocal",
         "Hall",
-        "Long"
+        "Long",
+        "Dark"
       ],
       "status": "incomplete_visual_transcription",
       "loadable": false,
@@ -503,7 +504,8 @@
       "name": "Smooth Vox Hall",
       "tags": [
         "Vocal",
-        "Hall"
+        "Hall",
+        "Medium"
       ],
       "status": "incomplete_visual_transcription",
       "loadable": false,
@@ -617,7 +619,8 @@
       "name": "Thicker Voc Plate",
       "tags": [
         "Vocal",
-        "Medium"
+        "Medium",
+        "Plate"
       ],
       "status": "incomplete_visual_transcription",
       "loadable": false,
@@ -976,7 +979,8 @@
       "tags": [
         "Vocal",
         "Best off",
-        "Medium"
+        "Medium",
+        "Plate"
       ],
       "status": "incomplete_visual_transcription",
       "loadable": false,
@@ -1636,7 +1640,8 @@
       "tags": [
         "Best off",
         "modulacao",
-        "Bright"
+        "Bright",
+        "Long"
       ],
       "status": "incomplete_visual_transcription",
       "loadable": false,
@@ -2839,7 +2844,8 @@
       "name": "Percussive Slap",
       "tags": [
         "Hall",
-        "Bright"
+        "Bright",
+        "Short"
       ],
       "status": "incomplete_visual_transcription",
       "loadable": false,
@@ -3210,7 +3216,8 @@
       "name": "Shuffle Slap",
       "tags": [
         "Hall",
-        "Bright"
+        "Bright",
+        "Short"
       ],
       "status": "incomplete_visual_transcription",
       "loadable": false,
@@ -4136,7 +4143,8 @@
       "tags": [
         "Plate",
         "Dark",
-        "Short"
+        "Short",
+        "Drums"
       ],
       "status": "incomplete_visual_transcription",
       "loadable": false,
@@ -5160,7 +5168,8 @@
         "modulacao",
         "Room",
         "Medium",
-        "Bright"
+        "Bright",
+        "Drums"
       ],
       "status": "incomplete_visual_transcription",
       "loadable": false,
@@ -5289,7 +5298,9 @@
       "name": "MidTempo Snare Room",
       "tags": [
         "modulacao",
-        "Drums"
+        "Drums",
+        "Short",
+        "Room"
       ],
       "status": "incomplete_visual_transcription",
       "loadable": false,
@@ -5404,7 +5415,8 @@
       "name": "Wider-2",
       "tags": [
         "modulacao",
-        "Room"
+        "Room",
+        "Short"
       ],
       "status": "incomplete_visual_transcription",
       "loadable": false,
@@ -6661,7 +6673,9 @@
       "name": "Snare Plate",
       "tags": [
         "Short",
-        "Drums"
+        "Drums",
+        "Plate",
+        "Dark"
       ],
       "status": "incomplete_visual_transcription",
       "loadable": false,
@@ -6986,7 +7000,8 @@
       "tags": [
         "Room",
         "Drums",
-        "Bright"
+        "Bright",
+        "Short"
       ],
       "status": "incomplete_visual_transcription",
       "loadable": false,
@@ -7454,7 +7469,8 @@
       "tags": [
         "Drums",
         "Medium",
-        "Bright"
+        "Bright",
+        "Plate"
       ],
       "status": "incomplete_visual_transcription",
       "loadable": false,
@@ -7689,7 +7705,8 @@
       "id": "medium-loose-chamber",
       "name": "Loose Chamber",
       "tags": [
-        "Medium"
+        "Medium",
+        "Dark"
       ],
       "status": "incomplete_visual_transcription",
       "loadable": false,
@@ -7793,7 +7810,8 @@
       "id": "medium-moments-in-lex",
       "name": "Moments in Lex",
       "tags": [
-        "Medium"
+        "Medium",
+        "Room"
       ],
       "status": "incomplete_visual_transcription",
       "loadable": false,
